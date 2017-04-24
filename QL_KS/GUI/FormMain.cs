@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace GUI
 {
+
     public partial class FormMain : Form
     {
         public FormMain()
@@ -94,5 +96,25 @@ namespace GUI
         {
             this.Close();
         }
+
+        private void ToolBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                User32.ReleaseCapture();
+                User32.SendMessage(this.Handle, User32.WM_NCLBUTTONDOWN, User32.HT_CAPTION, 0);
+            }
+        }
+    }
+    class User32
+    {
+        public static int HT_CAPTION = 0x2;
+        public static int WM_NCLBUTTONDOWN = 0x00A1;
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
     }
 }

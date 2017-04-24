@@ -60,6 +60,7 @@
             this.label3.Size = new System.Drawing.Size(108, 33);
             this.label3.TabIndex = 2;
             this.label3.Text = "Thiên Nga";
+            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolBar_MouseDown);
             // 
             // btnThoat
             // 
@@ -96,6 +97,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(991, 43);
             this.panel1.TabIndex = 9;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ToolBar_MouseDown);
             // 
             // btnDangNhap
             // 
