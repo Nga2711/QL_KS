@@ -22,7 +22,7 @@ namespace DAL
             try
             {
                 conn = null;
-                //  string sql = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + strconn + ";Integrated Security=True;Connect Timeout=30";
+                //string sql = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + strconn + ";Integrated Security=True;Connect Timeout=30";
                 string sql = @"Data Source=DESKTOP-3KHGO1B;Initial Catalog=DB_KhachSan;Integrated Security=True";
                 SqlConnection con = new SqlConnection(sql);
                 con.Open();
@@ -69,7 +69,7 @@ namespace DAL
                     cmd.Parameters.AddRange(para);
 
                 int val = cmd.ExecuteNonQuery();
-                conn.Close();
+                //conn.Close();
                 return val;
             }
             catch (SqlException)

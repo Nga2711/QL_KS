@@ -84,17 +84,17 @@ namespace DTO
         {
             return DATA.get_loaiphong();
         }
-        public void them_loaiphong()
+        public int them_loaiphong()
         {
-            DATA.them_loaiphong(ma, ten, gia, chatluong, mota);
+            return DATA.them_loaiphong(ma, ten, gia, chatluong, mota);
         }
-        public void sua_loaiphong()
+        public int sua_loaiphong()
         {
-            DATA.sua_loaiphong(ma, ten, gia, chatluong, mota);
+            return DATA.sua_loaiphong(ma, ten, gia, chatluong, mota);
         }
-        public void xoa_loaiphong(string ma)
+        public static int xoa_loaiphong(string ma)
         {
-            DATA.xoa_loaiphong(ma);
+            return DATA.xoa_loaiphong(ma);
         }
     }
 }

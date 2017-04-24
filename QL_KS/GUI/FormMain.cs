@@ -17,8 +17,10 @@ namespace GUI
     {
         public FormMain()
         {
-            InitializeComponent();
-         
+            //DTO.Connect.SetConnectString(Application.StartupPath.Replace(@"bin\Debug", @"data\DB_KhachSan.mdf"));
+            //while (!DTO.Connect.Open() && MessageBox.Show("Can not connect DataBase", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry) ;
+            //MessageBox.Show(DTO.Connect.GetSqlConnection().State.ToString());
+            InitializeComponent();      
         }
 
         public void showControl(System.Windows.Forms.Control obj)

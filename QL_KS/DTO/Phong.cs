@@ -56,17 +56,17 @@ namespace DTO
         {
             return DATA.get_phong();
         }
-        public void them_phong()
+        public int them_phong()
         {
-            DATA.them_phong(ma, tinhtrang, loaiphongma);
+            return DATA.them_phong(ma, tinhtrang, loaiphongma);
         }
-        public void sua_phong()
+        public int sua_phong()
         {
-            DATA.sua_phong(ma, tinhtrang, loaiphongma);
+            return DATA.sua_phong(ma, tinhtrang, loaiphongma);
         }
-        public void xoa_phong(string ma)
+        public int xoa_phong(string ma)
         {
-            DATA.xoa_phong(ma);
+            return DATA.xoa_phong(ma);
         }
     }
 }
