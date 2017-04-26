@@ -92,7 +92,7 @@ namespace DTO
         {
             return DATA.sua_loaiphong(ma, ten, gia, chatluong, mota);
         }
-        public static int xoa_loaiphong(string ma)
+        public int xoa_loaiphong(string ma)
         {
             return DATA.xoa_loaiphong(ma);
         }
