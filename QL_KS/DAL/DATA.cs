@@ -317,5 +317,99 @@ namespace DAL
             return DBConnect.ExecuteNonQuery("xoa_nhanvien", para);
         }
         #endregion
+
+        #region ChiTietHoaDonDichVu
+        public static DataTable get_chitiethoadondichvu()
+        {
+            return DBConnect.GetData("get_ChiTietHoaDonDichVu");
+        }
+        public static void them_chitiethoadondichvu(
+            string hoadondichvuma,
+            string dichvuma,
+            int soluong,
+            decimal thanhtien)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@hoadondichvuma",hoadondichvuma),
+                new SqlParameter("@dichvuma",dichvuma),
+                new SqlParameter("@soluong",(soluong >0)?(object)soluong:DBNull.Value),
+                new SqlParameter("@thanhtien",(thanhtien>0)?(object)thanhtien:DBNull.Value)
+            };
+            DBConnect.ExecuteNonQuery("them_ChiTietHoaDonDichVu", para);
+        }
+        public static void sua_chitiethoadondichvu(string hoadondichvuma,
+            string dichvuma,
+            int soluong,
+            decimal thanhtien)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                 new SqlParameter("@hoadondichvuma",hoadondichvuma),
+                new SqlParameter("@dichvuma",dichvuma),
+                new SqlParameter("@soluong",(soluong >0)?(object)soluong:DBNull.Value),
+                new SqlParameter("@thanhtien",(thanhtien>0)?(object)thanhtien:DBNull.Value)
+            };
+            DBConnect.ExecuteNonQuery("sua_ChiTietHoaDonDichVu", para);
+        }
+        public static void xoa_chitiethoadondichvu(string hoadondichvuma, string dichvuma)
+        {
+            SqlParameter[] para = new SqlParameter[]
+           {
+                 new SqlParameter("@hoadondichvuma",hoadondichvuma),
+                 new SqlParameter("@dichvuma", dichvuma)
+        };
+            DBConnect.ExecuteNonQuery("xoa_ChiTietHoaDonDichVu", para);
+        }
+        #endregion
+
+        #region HoaDonDichVu
+
+        public static DataTable get_hoadondichvu()
+        {
+            return DBConnect.GetData("get_HoaDonDichVu");
+        }
+        public static void them_hoadondichvu(
+            string ma,
+            string khachhangma,
+            string nhanvienxacnhan,
+            DateTime ngaysudung,
+            decimal tongtien)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@ma",ma),
+                new SqlParameter("@khachhangma",khachhangma),
+                new SqlParameter("@nhanvienxacnhan",nhanvienxacnhan),
+                new SqlParameter("@ngaysudung",(ngaysudung.Year!=1000)?(object)ngaysudung:DBNull.Value),
+                new SqlParameter("@tongtien",(tongtien>0)?(object)tongtien:DBNull.Value)
+            };
+            DBConnect.ExecuteNonQuery("them_HoaDonDichVu", para);
+        }
+        public static void sua_hoadondichvu(string ma,
+            string khachhangma,
+            string nhanvienxacnhan,
+            DateTime ngaysudung,
+            decimal tongtien)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@ma",ma),
+                new SqlParameter("@khachhangma",khachhangma),
+                new SqlParameter("@nhanvienxacnhan",nhanvienxacnhan),
+                new SqlParameter("@ngaysudung",(ngaysudung.Year!=1000)?(object)ngaysudung:DBNull.Value),
+                new SqlParameter("@tongtien",(tongtien>0)?(object)tongtien:DBNull.Value)
+            };
+            DBConnect.ExecuteNonQuery("sua_HoaDonDichVu", para);
+        }
+        public static void xoa_hoadondichvu(string ma)
+        {
+            SqlParameter[] para = new SqlParameter[]
+           {
+                 new SqlParameter("@ma",ma)
+           };
+            DBConnect.ExecuteNonQuery("xoa_HoaDonDichVu", para);
+        }
+        #endregion
     }
 }
