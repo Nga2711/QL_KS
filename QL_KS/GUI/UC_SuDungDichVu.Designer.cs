@@ -56,6 +56,7 @@
             this.donvitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnXemDS = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
             this.panel2.SuspendLayout();
@@ -68,7 +69,7 @@
             this.btnLuu.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnLuu.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Location = new System.Drawing.Point(136, 158);
+            this.btnLuu.Location = new System.Drawing.Point(141, 158);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(96, 34);
             this.btnLuu.TabIndex = 26;
@@ -160,6 +161,7 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnXemDS);
             this.panel3.Controls.Add(this.dtpNgay);
             this.panel3.Controls.Add(this.cboNVma);
             this.panel3.Controls.Add(this.cboKHma);
@@ -339,6 +341,19 @@
             this.panel1.Size = new System.Drawing.Size(359, 420);
             this.panel1.TabIndex = 3;
             // 
+            // btnXemDS
+            // 
+            this.btnXemDS.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnXemDS.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnXemDS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXemDS.Location = new System.Drawing.Point(19, 158);
+            this.btnXemDS.Name = "btnXemDS";
+            this.btnXemDS.Size = new System.Drawing.Size(96, 34);
+            this.btnXemDS.TabIndex = 30;
+            this.btnXemDS.Text = "Xem DSHDDV";
+            this.btnXemDS.UseVisualStyleBackColor = false;
+            this.btnXemDS.Click += new System.EventHandler(this.btnXemDS_Click);
+            // 
             // UC_SuDungDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,5 +407,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dvma;
         private System.Windows.Forms.DataGridViewTextBoxColumn soluongdv;
         private System.Windows.Forms.DataGridViewTextBoxColumn thanhtien;
+        private System.Windows.Forms.Button btnXemDS;
     }
 }

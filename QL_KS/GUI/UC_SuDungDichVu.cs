@@ -138,5 +138,11 @@ namespace GUI
         private void dgvGioHang_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
         }
+
+        private void btnXemDS_Click(object sender, EventArgs e)
+        {
+            frmDSHDDV frm = new frmDSHDDV();
+            frm.ShowDialog();
+        }
     }
 }
