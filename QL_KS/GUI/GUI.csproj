@@ -56,11 +56,11 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPhieuThue.cs">
+    <Compile Include="frmDSphieuthue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPhieuThue.Designer.cs">
-      <DependentUpon>frmPhieuThue.cs</DependentUpon>
+    <Compile Include="frmDSphieuthue.Designer.cs">
+      <DependentUpon>frmDSphieuthue.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,8 +115,8 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPhieuThue.resx">
-      <DependentUpon>frmPhieuThue.cs</DependentUpon>
+    <EmbeddedResource Include="frmDSphieuthue.resx">
+      <DependentUpon>frmDSphieuthue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

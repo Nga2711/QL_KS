@@ -19,6 +19,7 @@ namespace GUI
             InitializeComponent();
         }
         Phong p = new Phong();
+        LoaiPhong lp = new LoaiPhong();
         bool ThemMoi;
         void KhoaDieuKhien()
         {
@@ -53,6 +54,14 @@ namespace GUI
             dgvPhong.DataSource = dt;
         }
 
+        void HienThi_cboMaLoaiPhong()
+        {
+            DataTable dt = lp.get_maloaiphong();
+            cboLoaiPhong.DataSource = dt;
+            cboLoaiPhong.DisplayMember ="ma";
+            cboLoaiPhong.ValueMember = "ma";
+        }
+
         private void dgvPhong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             KhoaDieuKhien();
@@ -60,8 +69,9 @@ namespace GUI
             {
                 int Row_Index = e.RowIndex;
                 txtMa.Text = dgvPhong.Rows[Row_Index].Cells[0].Value.ToString();
-                cboLoaiPhong.Text = dgvPhong.Rows[Row_Index].Cells[1].Value.ToString();
-                txtTinhTrang.Text = dgvPhong.Rows[Row_Index].Cells[2].Value.ToString();
+                cboLoaiPhong.Text = dgvPhong.Rows[Row_Index].Cells[2].Value.ToString();
+                txtTinhTrang.Text = dgvPhong.Rows[Row_Index].Cells[1].Value.ToString();
+
             }
             catch
             {
@@ -72,6 +82,7 @@ namespace GUI
         {
             KhoaDieuKhien();
             HienThi();
+            HienThi_cboMaLoaiPhong();
         }
 
         private void btnThem_Click(object sender, EventArgs e)

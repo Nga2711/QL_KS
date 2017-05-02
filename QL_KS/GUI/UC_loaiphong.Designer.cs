@@ -176,6 +176,7 @@
             this.mota.DataPropertyName = "mota";
             this.mota.HeaderText = "Mô tả";
             this.mota.Name = "mota";
+            this.mota.ReadOnly = true;
             this.mota.Width = 200;
             // 
             // chatluong
@@ -183,6 +184,7 @@
             this.chatluong.DataPropertyName = "chatluong";
             this.chatluong.HeaderText = "Chất lượng";
             this.chatluong.Name = "chatluong";
+            this.chatluong.ReadOnly = true;
             this.chatluong.Width = 130;
             // 
             // gia
@@ -190,6 +192,7 @@
             this.gia.DataPropertyName = "gia";
             this.gia.HeaderText = "Giá";
             this.gia.Name = "gia";
+            this.gia.ReadOnly = true;
             this.gia.Width = 130;
             // 
             // ten
@@ -197,6 +200,7 @@
             this.ten.DataPropertyName = "ten";
             this.ten.HeaderText = "Tên loại phòng";
             this.ten.Name = "ten";
+            this.ten.ReadOnly = true;
             this.ten.Width = 130;
             // 
             // ma
@@ -204,6 +208,7 @@
             this.ma.DataPropertyName = "ma";
             this.ma.HeaderText = "Mã loại phòng";
             this.ma.Name = "ma";
+            this.ma.ReadOnly = true;
             this.ma.Width = 130;
             // 
             // dgvLoaiPhong
@@ -222,6 +227,7 @@
             this.dgvLoaiPhong.ReadOnly = true;
             this.dgvLoaiPhong.Size = new System.Drawing.Size(762, 226);
             this.dgvLoaiPhong.TabIndex = 0;
+            this.dgvLoaiPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiPhong_CellClick);
             // 
             // txttimkiem
             // 

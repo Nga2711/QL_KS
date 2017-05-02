@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.loaiphongma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPhong = new System.Windows.Forms.DataGridView();
-            this.tinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cboLoaiPhong = new System.Windows.Forms.ComboBox();
             this.btnCapNhat = new System.Windows.Forms.Button();
@@ -48,6 +45,9 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loaiphongma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhong)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,20 +64,6 @@
             this.textBox5.Text = "nhập vào khóa tìm kiếm...";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // loaiphongma
-            // 
-            this.loaiphongma.HeaderText = "Loại phòng mã";
-            this.loaiphongma.Name = "loaiphongma";
-            this.loaiphongma.ReadOnly = true;
-            this.loaiphongma.Width = 200;
-            // 
-            // ma
-            // 
-            this.ma.HeaderText = "Mã";
-            this.ma.Name = "ma";
-            this.ma.ReadOnly = true;
-            this.ma.Width = 150;
-            // 
             // dgvPhong
             // 
             this.dgvPhong.AllowUserToAddRows = false;
@@ -92,13 +78,7 @@
             this.dgvPhong.ReadOnly = true;
             this.dgvPhong.Size = new System.Drawing.Size(762, 235);
             this.dgvPhong.TabIndex = 0;
-            // 
-            // tinhtrang
-            // 
-            this.tinhtrang.HeaderText = "Tình trạng";
-            this.tinhtrang.Name = "tinhtrang";
-            this.tinhtrang.ReadOnly = true;
-            this.tinhtrang.Width = 390;
+            this.dgvPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhong_CellClick);
             // 
             // panel3
             // 
@@ -257,6 +237,30 @@
             this.panel1.Size = new System.Drawing.Size(762, 45);
             this.panel1.TabIndex = 4;
             // 
+            // ma
+            // 
+            this.ma.DataPropertyName = "ma";
+            this.ma.HeaderText = "Mã";
+            this.ma.Name = "ma";
+            this.ma.ReadOnly = true;
+            this.ma.Width = 150;
+            // 
+            // loaiphongma
+            // 
+            this.loaiphongma.DataPropertyName = "loaiphongma";
+            this.loaiphongma.HeaderText = "Mã loại phòng";
+            this.loaiphongma.Name = "loaiphongma";
+            this.loaiphongma.ReadOnly = true;
+            this.loaiphongma.Width = 200;
+            // 
+            // tinhtrang
+            // 
+            this.tinhtrang.DataPropertyName = "tinhtrang";
+            this.tinhtrang.HeaderText = "Tình trạng";
+            this.tinhtrang.Name = "tinhtrang";
+            this.tinhtrang.ReadOnly = true;
+            this.tinhtrang.Width = 390;
+            // 
             // UC_Phong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,10 +287,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loaiphongma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ma;
         private System.Windows.Forms.DataGridView dgvPhong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tinhtrang;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cboLoaiPhong;
         private System.Windows.Forms.Button btnCapNhat;
@@ -302,5 +303,8 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn loaiphongma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tinhtrang;
     }
 }

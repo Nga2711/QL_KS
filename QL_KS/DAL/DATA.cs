@@ -16,6 +16,23 @@ namespace DAL
         {
             return DBConnect.GetData("get_dichvu");
         }
+
+        public static DataTable get_dichvu1(string ma)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@ma",ma)
+            };
+            return DBConnect.GetData("get_dichvu1");
+        }
+        public static DataTable get_madichvu()
+        {
+            return DBConnect.GetData("get_maDV");
+        }
+        public static DataTable get_DSdichvu()
+        {
+            return DBConnect.GetData("get_DSDV");
+        }
         public static int them_dichvu(string ma, string ten, int soluong, string donvitinh, decimal gia)
         {
             SqlParameter[] para = new SqlParameter[]
@@ -54,6 +71,10 @@ namespace DAL
         public static DataTable get_loaiphong()
         {
             return DBConnect.GetData("get_loaiphong");
+        }
+        public static DataTable get_maloaiphong()
+        {
+            return DBConnect.GetData("get_maloaiphong");
         }
         public static int them_loaiphong(
             string ma, 
@@ -104,6 +125,31 @@ namespace DAL
         {
             return DBConnect.GetData("get_phong");
         }
+        public static DataTable get_phong_loaiphong()
+        {
+            return DBConnect.GetData("get_phong_loaiphong");
+        }
+
+        public static int capnhatttphong(string ma)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@ma",ma)
+                
+            };
+            return DBConnect.ExecuteNonQuery("capnhatttphong", para);
+        }
+
+        public static int capnhatttphongroi(string ma)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@ma",ma)
+
+            };
+            return DBConnect.ExecuteNonQuery("capnhatttphongroi", para);
+        }
+
         public static int them_phong(
             string ma, 
             string tinhtrang, 
@@ -141,6 +187,10 @@ namespace DAL
         #endregion
 
         #region Hoa Don Phong
+        public static DataTable get_HDP()
+        {
+            return DBConnect.GetData("get_HDP");
+        }
         public static int them_hoadonphong(
             string phongma,
             string phieuthuema,
@@ -194,18 +244,22 @@ namespace DAL
         }
         #endregion
 
-
         #region Khachhang
         public static DataTable get_khachhang()
         {
             return DBConnect.GetData("get_khachhang");
+        }
+        public static DataTable get_makhachhang()
+        {
+            return DBConnect.GetData("get_maKH");
         }
         public static int them_khachhang(string ma, string ten, bool gioitinh, string sdt, string cmnd, string diachi, string quoctich)
         {
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@ma", ma),
-                new SqlParameter("@ten", ten),
+                new SqlParameter("@ten",(ten!=null && ten.Trim()!="")?(object)ten:DBNull.Value),
+             //   new SqlParameter("@gioitinh",(gioitinh!=null && gioitinh.Trim()!="")?(object)ten:DBNull.Value),
                 new SqlParameter("@gioitinh",gioitinh),
                 new SqlParameter("@sdt", sdt),
                 new SqlParameter("@cmnd", cmnd),
@@ -243,25 +297,32 @@ namespace DAL
         {
             return DBConnect.GetData("get_phieuthue");
         }
-        public static int them_phieuthue(string ma, DateTime ngayden, string khachhangma, string nhanvienxacnhan)
+
+        public static DataTable get_phieuthuema()
+        {
+            return DBConnect.GetData("get_PTma");
+        }
+        public static int them_phieuthue(string ma, DateTime ngayden, string nhanvienxacnhan, string khachhangma,string phongma)
         {
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@ma", ma),
                 new SqlParameter("@ngayden",(ngayden.Year!=1000)?(object)ngayden:DBNull.Value),
                 new SqlParameter("@khachhangma",khachhangma),
-                new SqlParameter("@nhanvienxacnhan",nhanvienxacnhan)
+                new SqlParameter("@nhanvienxacnhan",nhanvienxacnhan),
+                new SqlParameter("@phongma",phongma)
             };
             return DBConnect.ExecuteNonQuery("them_phieuthue", para);
         }
-        public static int sua_phieuthue(string ma, DateTime ngayden, string khachhangma, string nhanvienxacnhan)
+        public static int sua_phieuthue(string ma, DateTime ngayden, string nhanvienxacnhan, string khachhangma,string phongma)
         {
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@ma", ma),
                 new SqlParameter("@ngayden",(ngayden.Year!=1000)?(object)ngayden:DBNull.Value),
                 new SqlParameter("@khachhangma",khachhangma),
-                new SqlParameter("@nhanvienxacnhan",nhanvienxacnhan)
+                new SqlParameter("@nhanvienxacnhan",nhanvienxacnhan),
+                new SqlParameter("@phongma",phongma)
             };
             return DBConnect.ExecuteNonQuery("sua_phieuthue", para);
         }
@@ -285,12 +346,13 @@ namespace DAL
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@ma",ma),
-                new SqlParameter("@ten",ten),
+                new SqlParameter("@ten",(ten!=null && ten.Trim()!="")?(object)ten:DBNull.Value),
                 new SqlParameter("@gioitinh",gioitinh),
                 new SqlParameter("@ngaysinh",(ngaysinh.Year!=1000)?(object)ngaysinh:DBNull.Value),
                 new SqlParameter("@sdt",sdt),
                 new SqlParameter("@diachi",diachi),
-                new SqlParameter("@matkhau",matkhau)
+                new SqlParameter("@matkhau",matkhau),
+                  
             };
             return DBConnect.ExecuteNonQuery("them_nhanvien",para);
         }
@@ -317,5 +379,90 @@ namespace DAL
             return DBConnect.ExecuteNonQuery("xoa_nhanvien", para);
         }
         #endregion
+
+        #region Hoa Don Dich Vu
+        public static DataTable get_hoadondichvu()
+        {
+            return DBConnect.GetData("get_hoadondichvu");
+        }
+
+ 
+        public static int them_hoadondichvu(string ma, string khachhangma, string nhanvienxacnhan, DateTime ngaysudung , decimal tongtien)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@ma",ma),
+                new SqlParameter("@khachhangma",(khachhangma!=null && khachhangma.Trim()!="")?(object)khachhangma:DBNull.Value),
+                new SqlParameter("@nhanvienxacnhan",(nhanvienxacnhan!=null && nhanvienxacnhan.Trim()!="")?(object)nhanvienxacnhan:DBNull.Value),
+                new SqlParameter("@ngaysudung",(ngaysudung.Year!=1000)?(object)ngaysudung:DBNull.Value),
+                new SqlParameter("@tongtien",(tongtien>0)?(object)tongtien:DBNull.Value)
+            };
+            return DBConnect.ExecuteNonQuery("them_hoadondichvu", para);
+        }
+        public static int sua_hoadondichvu(string ma, string khachhangma, string nhanvienxacnhan, DateTime ngaysudung, decimal tongtien)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+               new SqlParameter("@ma",ma),
+                new SqlParameter("@khachhangma",(khachhangma!=null && khachhangma.Trim()!="")?(object)khachhangma:DBNull.Value),
+                new SqlParameter("@nhanvienxacnhan",(nhanvienxacnhan!=null && nhanvienxacnhan.Trim()!="")?(object)nhanvienxacnhan:DBNull.Value),
+                new SqlParameter("@ngaysudung",(ngaysudung.Year!=1000)?(object)ngaysudung:DBNull.Value),
+                new SqlParameter("@tongtien",(tongtien>0)?(object)tongtien:DBNull.Value)
+            };
+            return DBConnect.ExecuteNonQuery("sua_hoadondichvu", para);
+        }
+        public static int xoa_hoadondichvu(string ma)
+        {
+            SqlParameter[] para = new SqlParameter[]
+           {
+                 new SqlParameter("@ma",ma)
+           };
+            return DBConnect.ExecuteNonQuery("xoa_hoadondichvu", para);
+        }
+        #endregion
+
+        #region Chi Tiet Hoa Don Dich Vu
+        public static DataTable get_CTHDdichvu()
+        {
+            return DBConnect.GetData("get_CTHDdichvu");
+        }
+
+        public static DataTable get_CTDV()
+        {
+            return DBConnect.GetData("get_CTDV");
+        }
+        public static int them_CTHDdichvu(string hoadondichvuma, string dichvuma, int soluong, decimal thanhtien)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@hoadondichvuma",hoadondichvuma),
+                new SqlParameter("@dichvuma",dichvuma),
+                new SqlParameter("@soluong",(soluong >0)?(object)soluong:DBNull.Value),
+                new SqlParameter("@thanhtien",(thanhtien>0)?(object)thanhtien:DBNull.Value)
+            };
+            return DBConnect.ExecuteNonQuery("them_CTHDdichvu", para);
+        }
+        public static int sua_CTHDdichvu(string hoadondichvuma, string dichvuma, int soluong, decimal thanhtien)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+              new SqlParameter("@hoadondichvuma",hoadondichvuma),
+                new SqlParameter("@dichvuma",dichvuma),
+                new SqlParameter("@soluong",(soluong >0)?(object)soluong:DBNull.Value),
+                 new SqlParameter("@thanhtien",(thanhtien>0)?(object)thanhtien:DBNull.Value)
+            };
+            return DBConnect.ExecuteNonQuery("sua_CTHDdichvu", para);
+        }
+        public static int xoa_CTHDdichvu(string hoadondichvuma,string dichvuma)
+        {
+            SqlParameter[] para = new SqlParameter[]
+           {
+                 new SqlParameter("@hoadondichvuma",hoadondichvuma),
+                 new SqlParameter("@dichvuma",dichvuma),
+           };
+            return DBConnect.ExecuteNonQuery("xoa_CTHDdichvu", para);
+        }
+        #endregion
+
     }
 }

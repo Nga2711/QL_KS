@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using DAL;
 
 namespace DTO
 {
@@ -107,19 +109,25 @@ namespace DTO
             }
         }
 
+        public DataTable get_HDP()
+        {
+            return DATA.get_HDP();
+        }
         public static int xoa_hoadonphong(string phongma, string phieuthuema)
         {
-            return DAL.DATA.xoa_hoadonphong(phongma, phieuthuema);
+            return DATA.xoa_hoadonphong(phongma, phieuthuema);
         }
 
         public int sua_hoadonphong()
         {
-            return DAL.DATA.sua_hoadonphong(phongma, phieuthuema, ngaydi, songaythue, thanhtien, ngaythanhtoan, nhanvienxacnhan);
+            return DATA.sua_hoadonphong(phongma, phieuthuema, ngaydi, songaythue, thanhtien, ngaythanhtoan, nhanvienxacnhan);
         }
 
         public int them_hoadonphong()
+
         {
-            return DAL.DATA.them_hoadonphong(phongma, phieuthuema, ngaydi, songaythue, thanhtien, ngaythanhtoan, nhanvienxacnhan);
+            return DATA.them_hoadonphong(phongma, phieuthuema, ngaydi, songaythue, thanhtien, ngaythanhtoan, nhanvienxacnhan);
         }
+
     }
 }

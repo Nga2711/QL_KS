@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Data;
+using DAL;
+
 namespace DTO
 {
     public class KhachHang
@@ -49,6 +52,27 @@ namespace DTO
         {
             get { return quoctich; }
             set { quoctich = value; }
+        }
+        public DataTable get_khachhang()
+        {
+            return DATA.get_khachhang();
+        }
+        public DataTable get_makhachhang()
+        {
+            return DATA.get_makhachhang();
+        }
+
+        public int them_khachhang()
+        {
+            return DATA.them_khachhang(ma, ten,gioitinh, sdt,cmnd,diachi,quoctich);
+        }
+        public int sua_khachhang()
+        {
+            return DATA.sua_khachhang(ma, ten, gioitinh, sdt, cmnd, diachi, quoctich);
+        }
+        public int xoa_khachhang(string ma)
+        {
+            return DATA.xoa_khachhang(ma);
         }
     }
 }

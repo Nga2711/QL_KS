@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DAL;
+using System.Data;
 namespace DTO
 {
     public class NhanVien
@@ -54,6 +55,23 @@ namespace DTO
         {
             get { return matkhau; }
             set { matkhau = value; }
+        }
+
+        public DataTable get_nhanvien()
+        {
+            return DATA.get_nhanvien();
+        }
+        public void them_nhanvien()
+        {
+            DATA.them_nhanvien(ma, ten, gioitinh,ngaysinh,sdt,diachi,matkhau);
+        }
+        public void sua_nhanvien()
+        {
+            DATA.sua_nhanvien(ma, ten, gioitinh, ngaysinh, sdt, diachi, matkhau);
+        }
+        public void xoa_nhanvien(string ma)
+        {
+            DATA.xoa_nhanvien(ma);
         }
     }
 }

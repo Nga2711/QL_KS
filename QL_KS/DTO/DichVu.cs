@@ -84,6 +84,18 @@ namespace DTO
         {
             return DATA.get_dichvu();
         }
+        public DataTable get_dichvu1(string ma)
+        {
+            return DATA.get_dichvu1(ma);
+        }
+        public DataTable get_madichvu()
+        {
+            return DATA.get_madichvu();
+        }
+        public DataTable get_DSdichvu()
+        {
+            return DATA.get_DSdichvu();
+        }
         public void them_dichvu()
         {
             DATA.them_dichvu(ma, ten, soluong, donvitinh, gia);

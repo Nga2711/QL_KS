@@ -84,6 +84,11 @@ namespace DTO
         {
             return DATA.get_loaiphong();
         }
+        public DataTable get_maloaiphong()
+        {
+            return DATA.get_maloaiphong();
+        }
+
         public int them_loaiphong()
         {
             return DATA.them_loaiphong(ma, ten, gia, chatluong, mota);

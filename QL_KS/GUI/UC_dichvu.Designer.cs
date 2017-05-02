@@ -306,6 +306,7 @@
             this.dgvDichVu.ReadOnly = true;
             this.dgvDichVu.Size = new System.Drawing.Size(762, 223);
             this.dgvDichVu.TabIndex = 0;
+            this.dgvDichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDichVu_CellClick);
             // 
             // UC_dichvu
             // 

@@ -10,6 +10,7 @@ namespace DTO
 {
   public  class Phong
     {
+        LoaiPhong lp = new LoaiPhong();
         private string ma;
         private string tinhtrang;
         private string loaiphongma;
@@ -56,6 +57,11 @@ namespace DTO
         {
             return DATA.get_phong();
         }
+
+        public DataTable get_phong_loaiphong()
+        {
+            return DATA.get_phong_loaiphong();
+        }
         public int them_phong()
         {
             return DATA.them_phong(ma, tinhtrang, loaiphongma);
@@ -63,6 +69,15 @@ namespace DTO
         public int sua_phong()
         {
             return DATA.sua_phong(ma, tinhtrang, loaiphongma);
+        }
+
+        public int capnhatttphong()
+        {
+            return DATA.capnhatttphong(ma);
+        }
+        public int capnhatttphongroi()
+        {
+            return DATA.capnhatttphongroi(ma);
         }
         public int xoa_phong(string ma)
         {
