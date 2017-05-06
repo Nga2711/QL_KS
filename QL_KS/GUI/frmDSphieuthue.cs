@@ -23,12 +23,16 @@ namespace GUI
         
         void HienThi()
         {
-            DataTable dt = pt.get_phieuthue();
+            DataTable dt = new DataTable();
+            string sql = @"Select ma, khachhangma,phongma,nhanvienxacnhan,ngayden from phieuthue where phieuthue.ma not in (select hoadonphong.phieuthuema from hoadonphong ) ";
+            dt=DBConnect.GetData(sql);
+          //  DataTable dt = pt.get_phieuthue();
             dgvPT.DataSource = dt;
         }
 
         private void frmDSphieuthue_Load(object sender, EventArgs e)
         {
+            
             HienThi();
         }
     }

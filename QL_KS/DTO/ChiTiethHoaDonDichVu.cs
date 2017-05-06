@@ -70,6 +70,10 @@ namespace DTO
         {
             return DATA.get_CTHDdichvu();
         }
+        public DataTable get_mahoadon()
+        {
+            return DATA.get_mahoadon();
+        }
         public DataTable get_CTDV()
         {
             return DATA.get_CTDV();

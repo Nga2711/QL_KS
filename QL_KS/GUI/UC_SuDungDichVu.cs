@@ -79,25 +79,30 @@ namespace GUI
                 hddv.Nhanvienxacnhan = cboNVma.Text;
                 hddv.Ngaysudung = Convert.ToDateTime(dtpNgay.Text);
                 hddv.Tongtien = Convert.ToDecimal(txtTongTien.Text);
-                hddv.them_hoadondichvu();
-                
+                hddv.them_hoadondichvu();                
                 for (int i = 0; i < dgvGioHang.Rows.Count - 1; i++)
                 {
                     cthddv.Hoadondichvuma = txtma.Text;
                     cthddv.Dichvuma= dgvGioHang[0, i].Value.ToString();
-                    cthddv.Soluong = int.Parse(dgvGioHang[1, i].Value.ToString());
+                    cthddv.Soluong = int.Parse(dgvGioHang[1, i].Value.ToString());                   
                     cthddv.Thanhtien = decimal.Parse(dgvGioHang[2, i].Value.ToString());
+                    DataTable dt = new DataTable();
+                    string sql = @"Select soluong from dichvu where ma='" + cthddv.Dichvuma + "'";
+                    dt = DBConnect.GetData(sql);
+                    dv.Ma = cthddv.Dichvuma;
+                    dv.Soluong = int.Parse(dt.Rows[0][0].ToString()) - int.Parse(dgvGioHang[1, i].Value.ToString());
+                    dv.capnhatSL();
                 }
                 cthddv.them_CTHDdichvu();
-                MessageBox.Show("Thêm thành công!");
-  
-             
+              
+                MessageBox.Show("Thêm thành công!");            
             }
             catch
             {
                 MessageBox.Show("Lỗi!");
                 return;
             }
+            HienThi_DV();
         }
 
  

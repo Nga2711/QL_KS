@@ -35,6 +35,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnXem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSHDDV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,10 +60,10 @@
             this.Column2,
             this.Column4,
             this.Column5});
-            this.dgvDSHDDV.Location = new System.Drawing.Point(2, 65);
+            this.dgvDSHDDV.Location = new System.Drawing.Point(2, 79);
             this.dgvDSHDDV.Name = "dgvDSHDDV";
             this.dgvDSHDDV.ReadOnly = true;
-            this.dgvDSHDDV.Size = new System.Drawing.Size(716, 265);
+            this.dgvDSHDDV.Size = new System.Drawing.Size(716, 251);
             this.dgvDSHDDV.TabIndex = 1;
             // 
             // Column1
@@ -105,11 +106,22 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(622, 41);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(75, 23);
+            this.btnXem.TabIndex = 2;
+            this.btnXem.Text = "Xem CTHD dịch vụ";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            // 
             // frmDSHDDV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 331);
+            this.Controls.Add(this.btnXem);
             this.Controls.Add(this.dgvDSHDDV);
             this.Controls.Add(this.label1);
             this.Name = "frmDSHDDV";
@@ -130,5 +142,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button btnXem;
     }
 }

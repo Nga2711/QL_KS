@@ -45,17 +45,28 @@ namespace DAL
             };
             return DBConnect.ExecuteNonQuery("them_dichvu", para);
         }
+        
         public static int sua_dichvu(string ma, string ten, int soluong, string donvitinh, decimal gia)
         {
             SqlParameter[] para = new SqlParameter[]
             {
-                 new SqlParameter("@ma",ma),
+                new SqlParameter("@ma",ma),
                 new SqlParameter("@ten",(ten!=null && ten.Trim()!="")?(object)ten:DBNull.Value),
                 new SqlParameter("@soluong",(soluong >0)?(object)soluong:DBNull.Value),
                 new SqlParameter("@donvitinh",(donvitinh!=null && donvitinh.Trim()!="")?(object)donvitinh:DBNull.Value),
                 new SqlParameter("@gia",(gia>0)?(object)gia:DBNull.Value)
             };
             return DBConnect.ExecuteNonQuery("sua_dichvu", para);
+        }
+
+        public static int capnhatSL(string ma, int soluong)
+        {
+            SqlParameter[] para = new SqlParameter[]
+            {
+                  new SqlParameter("@ma",ma),
+                new SqlParameter("@soluong",(soluong >0)?(object)soluong:DBNull.Value)               
+            };
+            return DBConnect.ExecuteNonQuery("capnhatsoluong1", para);
         }
         public static int xoa_dichvu(string ma)
         {
@@ -430,6 +441,10 @@ namespace DAL
         public static DataTable get_CTDV()
         {
             return DBConnect.GetData("get_CTDV");
+        }
+        public static DataTable get_mahoadon()
+        {
+            return DBConnect.GetData("get_mahoadon");
         }
         public static int them_CTHDdichvu(string hoadondichvuma, string dichvuma, int soluong, decimal thanhtien)
         {

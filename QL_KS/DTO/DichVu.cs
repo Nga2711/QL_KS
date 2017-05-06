@@ -104,6 +104,10 @@ namespace DTO
         {
             DATA.sua_dichvu(ma, ten, soluong, donvitinh, gia);
         }
+        public void capnhatSL()
+        {
+            DATA.capnhatSL(ma, soluong);
+        }
         public void xoa_dichvu(string ma)
         {
             DATA.xoa_dichvu(ma);

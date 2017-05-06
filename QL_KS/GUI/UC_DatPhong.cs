@@ -26,6 +26,8 @@ namespace GUI
 
         void KhoaDieuKhien()
         {
+            txtPhongMa.Enabled = false;
+            cboKHma.Enabled = false;
             txtMa.Enabled = false;
             txtTinhTrang.Enabled = false;
             txtGia.Enabled = false;
@@ -66,12 +68,16 @@ namespace GUI
         {
             DataTable dt = p.get_phong_loaiphong();
             dgvPhong_LoaiPhong.DataSource = dt;
+            dgvPhong_LoaiPhong.Columns["Mã phòng"].Width = 100;
+            dgvPhong_LoaiPhong.Columns["Mã loại phòng"].Width = 100;
+            dgvPhong_LoaiPhong.Columns["Giá"].Width = 150;
+            dgvPhong_LoaiPhong.Columns["Tình trạng"].Width = 140;
         }
-
         void HienThi_TTKH()
         {
             DataTable dt = kh.get_khachhang();
             dgvKhachHang.DataSource = dt;
+
         }
 
         private void dgvPhong_LoaiPhong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -106,17 +112,25 @@ namespace GUI
             dt = DBConnect.GetData(sql);
             string x;
             x= dt.Rows[0][0].ToString();
-            if (x == "trống")
+            if (string.Compare(x,"trống",true) == 0)
             {
-                return 1;
+                return 0;
             }
-            return 0;
+            return 1;
         }
+
+ 
+
  
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-             if (TinhTrang1()==1)
+            if (txtmaphieu.Text == "")
+            {
+                MessageBox.Show("Xin mời nhập thông tin đầy đủ");
+                return;
+            }
+            if (TinhTrang1()==0)
              {
             try
                 {

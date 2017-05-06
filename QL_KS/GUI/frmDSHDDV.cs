@@ -30,5 +30,11 @@ namespace GUI
         {
             HienThi();
         }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            frmCTHDdichvu frm = new frmCTHDdichvu();
+            frm.ShowDialog();
+        }
     }
 }

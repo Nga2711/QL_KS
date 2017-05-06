@@ -56,6 +56,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCTHDdichvu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCTHDdichvu.Designer.cs">
+      <DependentUpon>frmCTHDdichvu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDSHDDV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,12 +94,6 @@
     <Compile Include="UC_HoadonPhong.Designer.cs">
       <DependentUpon>UC_HoadonPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC_KhachHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_KhachHang.Designer.cs">
-      <DependentUpon>UC_KhachHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_loaiphong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +121,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCTHDdichvu.resx">
+      <DependentUpon>frmCTHDdichvu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDSHDDV.resx">
       <DependentUpon>frmDSHDDV.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,9 +147,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_HoadonPhong.resx">
       <DependentUpon>UC_HoadonPhong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_KhachHang.resx">
-      <DependentUpon>UC_KhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_loaiphong.resx">
       <DependentUpon>UC_loaiphong.cs</DependentUpon>

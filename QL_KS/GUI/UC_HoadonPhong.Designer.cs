@@ -61,14 +61,14 @@
             // 
             // txtThanhTien
             // 
-            this.txtThanhTien.Location = new System.Drawing.Point(557, 82);
+            this.txtThanhTien.Location = new System.Drawing.Point(557, 89);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.Size = new System.Drawing.Size(112, 20);
             this.txtThanhTien.TabIndex = 17;
             // 
             // txtSongay
             // 
-            this.txtSongay.Location = new System.Drawing.Point(557, 18);
+            this.txtSongay.Location = new System.Drawing.Point(557, 55);
             this.txtSongay.Name = "txtSongay";
             this.txtSongay.Size = new System.Drawing.Size(112, 20);
             this.txtSongay.TabIndex = 16;
@@ -76,7 +76,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(490, 89);
+            this.label8.Location = new System.Drawing.Point(490, 96);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 15;
@@ -85,7 +85,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(490, 56);
+            this.label9.Location = new System.Drawing.Point(18, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 13);
             this.label9.TabIndex = 14;
@@ -94,6 +94,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnXong);
             this.panel1.Controls.Add(this.txtPhongma);
             this.panel1.Controls.Add(this.cboNVma);
             this.panel1.Controls.Add(this.cboPTma);
@@ -115,7 +116,7 @@
             // 
             // txtPhongma
             // 
-            this.txtPhongma.Location = new System.Drawing.Point(85, 56);
+            this.txtPhongma.Location = new System.Drawing.Point(557, 19);
             this.txtPhongma.Name = "txtPhongma";
             this.txtPhongma.Size = new System.Drawing.Size(112, 20);
             this.txtPhongma.TabIndex = 35;
@@ -123,7 +124,7 @@
             // cboNVma
             // 
             this.cboNVma.FormattingEnabled = true;
-            this.cboNVma.Location = new System.Drawing.Point(557, 49);
+            this.cboNVma.Location = new System.Drawing.Point(85, 55);
             this.cboNVma.Name = "cboNVma";
             this.cboNVma.Size = new System.Drawing.Size(112, 21);
             this.cboNVma.TabIndex = 34;
@@ -154,7 +155,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(490, 25);
+            this.label10.Location = new System.Drawing.Point(490, 62);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 13);
             this.label10.TabIndex = 13;
@@ -181,7 +182,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 64);
+            this.label3.Location = new System.Drawing.Point(490, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 2;
@@ -311,11 +312,11 @@
             this.btnXong.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnXong.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnXong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXong.Location = new System.Drawing.Point(666, 146);
+            this.btnXong.Location = new System.Drawing.Point(374, 95);
             this.btnXong.Name = "btnXong";
             this.btnXong.Size = new System.Drawing.Size(83, 28);
             this.btnXong.TabIndex = 30;
-            this.btnXong.Text = "Xong";
+            this.btnXong.Text = "Nhập xong";
             this.btnXong.UseVisualStyleBackColor = false;
             this.btnXong.Click += new System.EventHandler(this.btnXong_Click);
             // 
@@ -324,7 +325,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.btnXong);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnInHoaDon);
             this.Controls.Add(this.btnLuu);
