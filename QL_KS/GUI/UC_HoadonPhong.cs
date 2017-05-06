@@ -93,6 +93,7 @@ namespace GUI
                 MessageBox.Show("Thành công!");
                // SetNull();
                 HienThi();
+                HienThi_cboPTma();
                 Phong_roi();
                 SetNull();
             }
