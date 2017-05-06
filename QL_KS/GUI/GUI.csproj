@@ -68,6 +68,12 @@
     <Compile Include="frmDSphieuthue.Designer.cs">
       <DependentUpon>frmDSphieuthue.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_login.Designer.cs">
+      <DependentUpon>UC_login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UC_DatPhong.cs">
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDSphieuthue.resx">
       <DependentUpon>frmDSphieuthue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_login.resx">
+      <DependentUpon>UC_login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

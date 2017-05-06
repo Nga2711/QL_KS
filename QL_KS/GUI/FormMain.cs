@@ -9,27 +9,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
-
+using DTO;
 namespace GUI
 {
 
     public partial class FormMain : Form
     {
+        
         public FormMain()
         {
             DTO.Connect.SetConnectString(Application.StartupPath.Replace(@"bin\Debug", @"data\DB_KhachSan.mdf"));
             while (!DTO.Connect.Open() && MessageBox.Show("Can not connect DataBase", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry) ;
             MessageBox.Show(DTO.Connect.GetSqlConnection().State.ToString());
-            InitializeComponent();      
+            InitializeComponent();
+           
         }
-
-        public void showControl(System.Windows.Forms.Control obj)
+        private bool scanfrmlogin = false;
+        private bool scanlogin = false;
+        public void showControlND(System.Windows.Forms.Control obj)
         {
             pnND.Controls.Clear();
             obj.Dock = DockStyle.Fill;
             pnND.Controls.Add(obj);
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -49,44 +51,65 @@ namespace GUI
 
         private void btnDatPhong_Click_1(object sender, EventArgs e)
         {
-            UserControl us = new UC_DatPhong();
-            showControl(us);
+            if(scanfrmlogin==true)
+            {
+                UserControl us = new UC_DatPhong();
+                showControlND(us);
+            }
+           
         }
 
         private void txtSuDung_Click(object sender, EventArgs e)
         {
-            UserControl us = new UC_SuDungDichVu();
-            showControl(us);
+            if(scanfrmlogin==true)
+            {
+                UserControl us = new UC_SuDungDichVu();
+                showControlND(us);
+            }
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             UserControl us = new UC_HoadonPhong();
-            showControl(us);
+            showControlND(us);
         }
 
         private void btnLoaiPhong_Click(object sender, EventArgs e)
         {
-            UserControl us = new UC_loaiphong();
-            showControl(us);
+            if(scanfrmlogin==true)
+            {
+                UserControl us = new UC_loaiphong();
+                showControlND(us);
+            }
         }
 
         private void btnPhong_Click(object sender, EventArgs e)
         {
-            UserControl us = new UC_Phong();
-            showControl(us);
+            if(scanfrmlogin==true)
+            {
+                UserControl us = new UC_Phong();
+                showControlND(us);
+            }
+
         }
 
         private void btnDichVu_Click(object sender, EventArgs e)
         {
-            UserControl us = new UC_dichvu();
-            showControl(us);
+            if(scanfrmlogin==true)
+            {
+                UserControl us = new UC_dichvu();
+                showControlND(us);
+            }
+
         }
 
         private void ntnNhanVien_Click(object sender, EventArgs e)
         {
-            UserControl us = new UC_nhanvien();
-            showControl(us);
+            if(scanfrmlogin==true)
+            {
+                UserControl us = new UC_nhanvien();
+                showControlND(us);
+            }
         }
 
         private void btnSoLuongKhach_Click(object sender, EventArgs e)
@@ -107,7 +130,46 @@ namespace GUI
                 User32.SendMessage(this.Handle, User32.WM_NCLBUTTONDOWN, User32.HT_CAPTION, 0);
             }
         }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            UC_login lg = new UC_login();
+            if (scanlogin == false)
+            {
+
+                showControlND(lg); 
+                lg.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+                lg.LoginEvent += _LoginEvent;
+            }
+             
+            else
+            {
+                lg.Dispose();
+                pnND.Controls.Clear();
+            }
+            if (scanlogin == false)
+            {
+                scanlogin = true;
+            }
+            else
+            {
+                scanlogin = false;
+            }
+
+
+        }
+        private void _LoginEvent(string username, bool scan)
+        {
+            UC_DatPhong a = new UC_DatPhong();
+            if (scan == true)
+            {
+                btnDangNhap.Enabled = false;
+                btnDangNhap.Text = "Xin chào "+username;
+                scanfrmlogin = true;
+            }
+        }
     }
+
     class User32
     {
         public static int HT_CAPTION = 0x2;
