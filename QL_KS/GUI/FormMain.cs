@@ -133,39 +133,46 @@ namespace GUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            UC_login lg = new UC_login();
-            if (scanlogin == false)
+            if(btnDangNhap.Text.CompareTo("Đăng Nhập")==0)
             {
+                UC_login lg = new UC_login();
+                if (scanlogin == false)
+                {
+                    showControlND(lg);
+                    lg.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
+                    lg.LoginEvent += _LoginEvent;
+                }
 
-                showControlND(lg); 
-                lg.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
-                lg.LoginEvent += _LoginEvent;
+                else
+                {
+                    lg.Dispose();
+                    pnND.Controls.Clear();
+                }
+                if (scanlogin == false)
+                {
+                    scanlogin = true;
+                }
+                else
+                {
+                    scanlogin = false;
+                }
             }
-             
-            else
-            {
-                lg.Dispose();
-                pnND.Controls.Clear();
-            }
-            if (scanlogin == false)
-            {
-                scanlogin = true;
-            }
-            else
-            {
-                scanlogin = false;
-            }
-
-
         }
         private void _LoginEvent(string username, bool scan)
         {
-            UC_DatPhong a = new UC_DatPhong();
             if (scan == true)
             {
-                btnDangNhap.Enabled = false;
                 btnDangNhap.Text = "Xin chào "+username;
                 scanfrmlogin = true;
+            }
+        }
+
+        private void btnDoanhThu_Click(object sender, EventArgs e)
+        {
+            if(scanfrmlogin ==true)
+            {
+                UC_DoanhThu Doanhthu = new UC_DoanhThu();
+                showControlND(Doanhthu);
             }
         }
     }
