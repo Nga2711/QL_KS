@@ -45,8 +45,8 @@
             this.btnPhong = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.lbBaoCao = new System.Windows.Forms.Label();
-            this.pnND = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnND = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -111,6 +111,7 @@
             this.btnDangNhap.TabIndex = 1;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = false;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // btnDoanhThu
             // 
@@ -293,20 +294,6 @@
             this.lbBaoCao.TabIndex = 16;
             this.lbBaoCao.Text = "▼  Báo cáo";
             // 
-            // pnND
-            // 
-            this.pnND.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnND.BackColor = System.Drawing.Color.Silver;
-            this.pnND.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnND.ForeColor = System.Drawing.Color.Black;
-            this.pnND.Location = new System.Drawing.Point(224, 50);
-            this.pnND.Margin = new System.Windows.Forms.Padding(4);
-            this.pnND.Name = "pnND";
-            this.pnND.Size = new System.Drawing.Size(762, 424);
-            this.pnND.TabIndex = 8;
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -333,6 +320,13 @@
             this.panel2.Size = new System.Drawing.Size(216, 440);
             this.panel2.TabIndex = 7;
             // 
+            // pnND
+            // 
+            this.pnND.Location = new System.Drawing.Point(223, 47);
+            this.pnND.Name = "pnND";
+            this.pnND.Size = new System.Drawing.Size(755, 435);
+            this.pnND.TabIndex = 10;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,8 +334,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(990, 480);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnND);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -377,7 +371,7 @@
         private System.Windows.Forms.Button btnPhong;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Label lbBaoCao;
-        private System.Windows.Forms.Panel pnND;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnND;
     }
 }
