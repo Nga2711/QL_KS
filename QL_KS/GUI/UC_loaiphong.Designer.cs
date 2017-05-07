@@ -46,7 +46,7 @@
             this.ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvLoaiPhong = new System.Windows.Forms.DataGridView();
-            this.txttimkiem = new System.Windows.Forms.TextBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -229,15 +229,18 @@
             this.dgvLoaiPhong.TabIndex = 0;
             this.dgvLoaiPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiPhong_CellClick);
             // 
-            // txttimkiem
+            // txtTimKiem
             // 
-            this.txttimkiem.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txttimkiem.Location = new System.Drawing.Point(528, 172);
-            this.txttimkiem.Name = "txttimkiem";
-            this.txttimkiem.Size = new System.Drawing.Size(218, 20);
-            this.txttimkiem.TabIndex = 12;
-            this.txttimkiem.Text = "nhập vào khóa muốn tìm...";
-            this.txttimkiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTimKiem.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtTimKiem.Location = new System.Drawing.Point(528, 172);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(218, 20);
+            this.txtTimKiem.TabIndex = 12;
+            this.txtTimKiem.Text = "nhập vào khóa muốn tìm...";
+            this.txtTimKiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTimKiem_MouseClick);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            this.txtTimKiem.MouseLeave += new System.EventHandler(this.txtTimKiem_MouseLeave);
             // 
             // panel2
             // 
@@ -319,7 +322,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txttimkiem);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Name = "UC_loaiphong";
@@ -356,7 +359,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn ma;
         private System.Windows.Forms.DataGridView dgvLoaiPhong;
-        private System.Windows.Forms.TextBox txttimkiem;
+        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnXoa;

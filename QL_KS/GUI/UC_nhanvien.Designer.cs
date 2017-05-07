@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtTìmKiem = new System.Windows.Forms.TextBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cboGioiTinh = new System.Windows.Forms.ComboBox();
@@ -46,12 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,21 +53,30 @@
             this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matkhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtTìmKiem
+            // txtTimKiem
             // 
-            this.txtTìmKiem.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtTìmKiem.Location = new System.Drawing.Point(543, 181);
-            this.txtTìmKiem.Name = "txtTìmKiem";
-            this.txtTìmKiem.Size = new System.Drawing.Size(212, 20);
-            this.txtTìmKiem.TabIndex = 8;
-            this.txtTìmKiem.Text = "nhập vào khóa tìm kiếm...";
-            this.txtTìmKiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTimKiem.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtTimKiem.Location = new System.Drawing.Point(543, 181);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(212, 20);
+            this.txtTimKiem.TabIndex = 8;
+            this.txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
+            this.txtTimKiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTimKiem_MouseClick);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTìmKiem_TextChanged);
+            this.txtTimKiem.MouseLeave += new System.EventHandler(this.txtTimKiem_MouseLeave);
             // 
             // dtpNgaySinh
             // 
@@ -248,6 +251,59 @@
             this.dgvNhanVien.TabIndex = 0;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
+            // ma
+            // 
+            this.ma.DataPropertyName = "ma";
+            this.ma.HeaderText = "Mã ";
+            this.ma.Name = "ma";
+            this.ma.ReadOnly = true;
+            this.ma.Width = 50;
+            // 
+            // ten
+            // 
+            this.ten.DataPropertyName = "ten";
+            this.ten.HeaderText = "Tên nhân viên";
+            this.ten.Name = "ten";
+            this.ten.ReadOnly = true;
+            this.ten.Width = 130;
+            // 
+            // gioitinh
+            // 
+            this.gioitinh.DataPropertyName = "gioitinh";
+            this.gioitinh.HeaderText = "Giới tính";
+            this.gioitinh.Name = "gioitinh";
+            this.gioitinh.ReadOnly = true;
+            // 
+            // ngaysinh
+            // 
+            this.ngaysinh.DataPropertyName = "ngaysinh";
+            this.ngaysinh.HeaderText = "Ngày sinh";
+            this.ngaysinh.Name = "ngaysinh";
+            this.ngaysinh.ReadOnly = true;
+            // 
+            // sdt
+            // 
+            this.sdt.DataPropertyName = "sdt";
+            this.sdt.HeaderText = "Số điện thoại";
+            this.sdt.Name = "sdt";
+            this.sdt.ReadOnly = true;
+            this.sdt.Width = 120;
+            // 
+            // diachi
+            // 
+            this.diachi.DataPropertyName = "diachi";
+            this.diachi.HeaderText = "Địa chỉ";
+            this.diachi.Name = "diachi";
+            this.diachi.ReadOnly = true;
+            this.diachi.Width = 127;
+            // 
+            // matkhau
+            // 
+            this.matkhau.DataPropertyName = "matkhau";
+            this.matkhau.HeaderText = "Mật khẩu";
+            this.matkhau.Name = "matkhau";
+            this.matkhau.ReadOnly = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -317,65 +373,12 @@
             this.panel1.Size = new System.Drawing.Size(763, 41);
             this.panel1.TabIndex = 5;
             // 
-            // ma
-            // 
-            this.ma.DataPropertyName = "ma";
-            this.ma.HeaderText = "Mã ";
-            this.ma.Name = "ma";
-            this.ma.ReadOnly = true;
-            this.ma.Width = 50;
-            // 
-            // ten
-            // 
-            this.ten.DataPropertyName = "ten";
-            this.ten.HeaderText = "Tên nhân viên";
-            this.ten.Name = "ten";
-            this.ten.ReadOnly = true;
-            this.ten.Width = 130;
-            // 
-            // gioitinh
-            // 
-            this.gioitinh.DataPropertyName = "gioitinh";
-            this.gioitinh.HeaderText = "Giới tính";
-            this.gioitinh.Name = "gioitinh";
-            this.gioitinh.ReadOnly = true;
-            // 
-            // ngaysinh
-            // 
-            this.ngaysinh.DataPropertyName = "ngaysinh";
-            this.ngaysinh.HeaderText = "Ngày sinh";
-            this.ngaysinh.Name = "ngaysinh";
-            this.ngaysinh.ReadOnly = true;
-            // 
-            // sdt
-            // 
-            this.sdt.DataPropertyName = "sdt";
-            this.sdt.HeaderText = "Số điện thoại";
-            this.sdt.Name = "sdt";
-            this.sdt.ReadOnly = true;
-            this.sdt.Width = 120;
-            // 
-            // diachi
-            // 
-            this.diachi.DataPropertyName = "diachi";
-            this.diachi.HeaderText = "Địa chỉ";
-            this.diachi.Name = "diachi";
-            this.diachi.ReadOnly = true;
-            this.diachi.Width = 127;
-            // 
-            // matkhau
-            // 
-            this.matkhau.DataPropertyName = "matkhau";
-            this.matkhau.HeaderText = "Mật khẩu";
-            this.matkhau.Name = "matkhau";
-            this.matkhau.ReadOnly = true;
-            // 
             // UC_nhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.txtTìmKiem);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -395,7 +398,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtTìmKiem;
+        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cboGioiTinh;

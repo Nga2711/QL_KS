@@ -35,6 +35,7 @@
             this.co = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPT)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,10 +60,10 @@
             this.co,
             this.Column2,
             this.Column3});
-            this.dgvPT.Location = new System.Drawing.Point(0, 57);
+            this.dgvPT.Location = new System.Drawing.Point(0, 80);
             this.dgvPT.Name = "dgvPT";
             this.dgvPT.ReadOnly = true;
-            this.dgvPT.Size = new System.Drawing.Size(719, 275);
+            this.dgvPT.Size = new System.Drawing.Size(719, 252);
             this.dgvPT.TabIndex = 1;
             // 
             // Column1
@@ -105,11 +106,25 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtTimKiem.Location = new System.Drawing.Point(476, 54);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(231, 20);
+            this.txtTimKiem.TabIndex = 12;
+            this.txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
+            this.txtTimKiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTimKiem_MouseClick);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            this.txtTimKiem.MouseLeave += new System.EventHandler(this.txtTimKiem_MouseLeave);
+            // 
             // frmDSphieuthue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 331);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.dgvPT);
             this.Controls.Add(this.label1);
             this.Name = "frmDSphieuthue";
@@ -130,5 +145,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn co;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.TextBox txtTimKiem;
     }
 }

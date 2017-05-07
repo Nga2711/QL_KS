@@ -67,7 +67,13 @@ namespace GUI
             DataTable dt = nv.get_nhanvien();
             dgvNhanVien.DataSource = dt;
         }
-     
+        void TimKiem()
+        {
+            DataTable dt = new DataTable();
+            string sql = @"Select  ma,ten,(case when gioitinh = '1' then 'Nam' else N'Nữ' end) as gioitinh, ngaysinh, sdt,diachi,matkhau  from nhanvien where ten like '%" + txtTimKiem.Text.Trim() + "%'";
+            dt = DBConnect.GetData(sql);
+            dgvNhanVien.DataSource = dt;
+        }
 
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -190,6 +196,32 @@ namespace GUI
             SetNull();
             KhoaDieuKhien();
             HienThi();
+        }
+
+        private void txtTìmKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "nhập vào khóa muốn tìm kiếm...")
+            {
+                HienThi();
+
+            }
+            else
+                TimKiem();
+        }
+
+        private void txtTimKiem_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTimKiem.Text = "";
+            txtTimKiem.ForeColor = Color.Black;
+        }
+
+        private void txtTimKiem_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "")
+            {
+                txtTimKiem.ForeColor = Color.Gray;
+                txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
+            }
         }
     }
 }

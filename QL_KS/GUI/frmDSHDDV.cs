@@ -26,6 +26,14 @@ namespace GUI
            dgvDSHDDV.DataSource = dt;
         }
 
+        void TimKiem()
+        {
+            DataTable dt = new DataTable();
+            string sql = @"Select * from hoadondichvu where ma like '%" + txtTimKiem.Text.Trim() + "%'";
+            dt = DBConnect.GetData(sql);
+            dgvDSHDDV.DataSource = dt;
+        }
+
         private void frmDSHDDV_Load(object sender, EventArgs e)
         {
             HienThi();
@@ -35,6 +43,32 @@ namespace GUI
         {
             frmCTHDdichvu frm = new frmCTHDdichvu();
             frm.ShowDialog();
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "nhập vào khóa muốn tìm kiếm...")
+            {
+                HienThi();
+
+            }
+            else
+                TimKiem();
+        }
+
+        private void txtTimKiem_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTimKiem.Text = "";
+            txtTimKiem.ForeColor = Color.Black;
+        }
+
+        private void txtTimKiem_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "")
+            {
+                txtTimKiem.ForeColor = Color.Gray;
+                txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
+            }
         }
     }
 }

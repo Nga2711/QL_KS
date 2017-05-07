@@ -61,6 +61,14 @@ namespace GUI
             dgvLoaiPhong.DataSource = dt;
         }
 
+        void TimKiem()
+        {
+            DataTable dt = new DataTable();
+            string sql = @"Select * from loaiphong where ten like '%" + txtTimKiem.Text.Trim() + "%'";
+            dt = DBConnect.GetData(sql);
+            dgvLoaiPhong.DataSource = dt;
+        }
+
         private void dgvLoaiPhong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             KhoaDieuKhien();
@@ -172,6 +180,32 @@ namespace GUI
             SetNull();
             KhoaDieuKhien();
             HienThi();
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "nhập vào khóa muốn tìm kiếm...")
+            {
+                HienThi();
+
+            }
+            else
+                TimKiem();
+        }
+
+        private void txtTimKiem_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTimKiem.Text = "";
+            txtTimKiem.ForeColor = Color.Black;
+        }
+
+        private void txtTimKiem_MouseLeave(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "")
+            {
+                txtTimKiem.ForeColor = Color.Gray;
+                txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
+            }
         }
     }
 }

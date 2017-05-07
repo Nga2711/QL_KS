@@ -17,6 +17,11 @@ namespace DAL
             return DBConnect.GetData("get_dichvu");
         }
 
+        //public static DataTable timkiem_dichvu(string ten)
+        //{
+        //    return DBConnect.GetData("timkiem_dichvu'"+ ten +"'");
+        //}
+
         public static DataTable get_dichvu1(string ma)
         {
             SqlParameter[] para = new SqlParameter[]

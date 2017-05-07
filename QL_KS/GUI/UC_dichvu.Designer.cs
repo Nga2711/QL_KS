@@ -281,6 +281,9 @@
             this.txtTimKiem.TabIndex = 11;
             this.txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
             this.txtTimKiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTimKiem_MouseClick);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            this.txtTimKiem.MouseLeave += new System.EventHandler(this.txtTimKiem_MouseLeave);
             // 
             // panel3
             // 

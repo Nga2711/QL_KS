@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.dgvPhong = new System.Windows.Forms.DataGridView();
+            this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loaiphongma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cboLoaiPhong = new System.Windows.Forms.ComboBox();
             this.btnCapNhat = new System.Windows.Forms.Button();
@@ -45,24 +48,25 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loaiphongma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhong)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox5
+            // txtTimKiem
             // 
-            this.textBox5.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox5.Location = new System.Drawing.Point(540, 163);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(211, 20);
-            this.textBox5.TabIndex = 7;
-            this.textBox5.Text = "nhập vào khóa tìm kiếm...";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTimKiem.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtTimKiem.Location = new System.Drawing.Point(540, 163);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(211, 20);
+            this.txtTimKiem.TabIndex = 7;
+            this.txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
+            this.txtTimKiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTimKiem_MouseClick);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            this.txtTimKiem.MouseLeave += new System.EventHandler(this.txtTimKiem_MouseLeave);
+            this.txtTimKiem.MouseMove += new System.Windows.Forms.MouseEventHandler(this.txtTimKiem_MouseMove);
             // 
             // dgvPhong
             // 
@@ -79,6 +83,30 @@
             this.dgvPhong.Size = new System.Drawing.Size(762, 235);
             this.dgvPhong.TabIndex = 0;
             this.dgvPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhong_CellClick);
+            // 
+            // ma
+            // 
+            this.ma.DataPropertyName = "ma";
+            this.ma.HeaderText = "Mã";
+            this.ma.Name = "ma";
+            this.ma.ReadOnly = true;
+            this.ma.Width = 150;
+            // 
+            // loaiphongma
+            // 
+            this.loaiphongma.DataPropertyName = "loaiphongma";
+            this.loaiphongma.HeaderText = "Mã loại phòng";
+            this.loaiphongma.Name = "loaiphongma";
+            this.loaiphongma.ReadOnly = true;
+            this.loaiphongma.Width = 200;
+            // 
+            // tinhtrang
+            // 
+            this.tinhtrang.DataPropertyName = "tinhtrang";
+            this.tinhtrang.HeaderText = "Tình trạng";
+            this.tinhtrang.Name = "tinhtrang";
+            this.tinhtrang.ReadOnly = true;
+            this.tinhtrang.Width = 390;
             // 
             // panel3
             // 
@@ -237,36 +265,12 @@
             this.panel1.Size = new System.Drawing.Size(762, 45);
             this.panel1.TabIndex = 4;
             // 
-            // ma
-            // 
-            this.ma.DataPropertyName = "ma";
-            this.ma.HeaderText = "Mã";
-            this.ma.Name = "ma";
-            this.ma.ReadOnly = true;
-            this.ma.Width = 150;
-            // 
-            // loaiphongma
-            // 
-            this.loaiphongma.DataPropertyName = "loaiphongma";
-            this.loaiphongma.HeaderText = "Mã loại phòng";
-            this.loaiphongma.Name = "loaiphongma";
-            this.loaiphongma.ReadOnly = true;
-            this.loaiphongma.Width = 200;
-            // 
-            // tinhtrang
-            // 
-            this.tinhtrang.DataPropertyName = "tinhtrang";
-            this.tinhtrang.HeaderText = "Tình trạng";
-            this.tinhtrang.Name = "tinhtrang";
-            this.tinhtrang.ReadOnly = true;
-            this.tinhtrang.Width = 390;
-            // 
             // UC_Phong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -286,7 +290,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.DataGridView dgvPhong;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cboLoaiPhong;

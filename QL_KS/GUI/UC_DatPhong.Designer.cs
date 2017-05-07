@@ -204,7 +204,7 @@
             this.pnThongTinPhong.Controls.Add(this.label1);
             this.pnThongTinPhong.Location = new System.Drawing.Point(535, 0);
             this.pnThongTinPhong.Name = "pnThongTinPhong";
-            this.pnThongTinPhong.Size = new System.Drawing.Size(227, 148);
+            this.pnThongTinPhong.Size = new System.Drawing.Size(224, 148);
             this.pnThongTinPhong.TabIndex = 2;
             // 
             // panel2
@@ -410,7 +410,7 @@
             this.panel1.Controls.Add(this.label20);
             this.panel1.Location = new System.Drawing.Point(532, 154);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(230, 270);
+            this.panel1.Size = new System.Drawing.Size(227, 270);
             this.panel1.TabIndex = 41;
             // 
             // btnXem
