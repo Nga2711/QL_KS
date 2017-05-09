@@ -160,7 +160,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(13, 4);
+            this.label2.Location = new System.Drawing.Point(9, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 15;
@@ -188,8 +188,8 @@
             // 
             this.btnLoaiPhong.BackColor = System.Drawing.Color.Silver;
             this.btnLoaiPhong.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnLoaiPhong.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
-            this.btnLoaiPhong.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnLoaiPhong.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gainsboro;
+            this.btnLoaiPhong.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnLoaiPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoaiPhong.Location = new System.Drawing.Point(12, 146);
             this.btnLoaiPhong.Margin = new System.Windows.Forms.Padding(4);
@@ -318,14 +318,14 @@
             this.panel2.Location = new System.Drawing.Point(0, 42);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(216, 440);
+            this.panel2.Size = new System.Drawing.Size(216, 437);
             this.panel2.TabIndex = 7;
             // 
             // pnND
             // 
-            this.pnND.Location = new System.Drawing.Point(223, 47);
+            this.pnND.Location = new System.Drawing.Point(223, 50);
             this.pnND.Name = "pnND";
-            this.pnND.Size = new System.Drawing.Size(755, 435);
+            this.pnND.Size = new System.Drawing.Size(762, 421);
             this.pnND.TabIndex = 10;
             // 
             // FormMain

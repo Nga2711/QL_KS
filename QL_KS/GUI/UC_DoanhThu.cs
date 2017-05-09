@@ -60,9 +60,9 @@ namespace GUI
             if (diemung==12)
             {
                
-                 for (int i = 0;i<=12;i++)
+                 for (int i = 1;i<=12;i++)
                 {
-                    dt = DBConnect.GetData("select sum(thanhtien) from hoadonphong where ngaythanhtoan>= '"+DateTime.Now.Year+"-"+ i+"-01'and ngaythanhtoan<= '" + year+"-"+month+"-"+day+"'");
+                    dt = DBConnect.GetData("select sum(thanhtien) from hoadonphong where ngaythanhtoan>= '"+DateTime.Now.Year+"-"+ i+"-01'and ngaythanhtoan<= '" + year+"-"+i+"-"+day+"'");
                     if (dt != null)
                         decimal.TryParse(dt.Rows[0][0].ToString(), out x);
 
@@ -71,6 +71,8 @@ namespace GUI
                         decimal.TryParse(dt.Rows[0][0].ToString(), out tam);
                     x += tam;
                     setxy(i, x);
+                    x = 0;
+                    tam = 0;
                 }
             }
             else
@@ -78,20 +80,21 @@ namespace GUI
                 for(int i = 1;i<=diemung;i++)
                 {
                     
-                    dt = DBConnect.GetData("select sum(thanhtien) from hoadonphong where ngaythanhtoan= '" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-01'");
+                    dt = DBConnect.GetData("select sum(thanhtien) from hoadonphong where ngaythanhtoan= '" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-"+i+"'");
                     if (dt != null)
                         decimal.TryParse(dt.Rows[0][0].ToString(), out x);
                   
                    
-                    dt = DBConnect.GetData("select sum(tongtien) from hoadondichvu where ngaysudung>= '" + DateTime.Now.Year + "-" + i + "-01'");
+                    dt = DBConnect.GetData("select sum(tongtien) from hoadondichvu where ngaysudung = '" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + i + "'");
                     if (dt != null)
                         decimal.TryParse(dt.Rows[0][0].ToString(), out tam);
                     x += tam;
                     setxy(i, x);
+                    x = 0;
+                    tam = 0;
                 }
             }
-            x = 0;
-            tam = 0;
+
         }
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {

@@ -53,7 +53,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.C_bieudo.Series.Add(series1);
-            this.C_bieudo.Size = new System.Drawing.Size(759, 300);
+            this.C_bieudo.Size = new System.Drawing.Size(759, 374);
             this.C_bieudo.TabIndex = 0;
             this.C_bieudo.Text = "chart1";
             // 

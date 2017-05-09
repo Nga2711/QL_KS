@@ -15,7 +15,19 @@ namespace GUI
 
     public partial class FormMain : Form
     {
-        
+        private string name;
+        private string lastname;
+       private void buttonclick(object sender, EventArgs e)
+        {
+            Button tam = (Button)sender;
+            tam.BackColor = Color.DarkGray;
+            if(lastname!=""&& lastname !=null)
+            {
+                tam = this.Controls.Find(lastname, true).FirstOrDefault() as Button;
+                tam.BackColor = Color.Silver;
+            }
+            
+        }
         public FormMain()
         {
             DTO.Connect.SetConnectString(Application.StartupPath.Replace(@"bin\Debug", @"data\DB_KhachSan.mdf"));
@@ -51,8 +63,12 @@ namespace GUI
 
         private void btnDatPhong_Click_1(object sender, EventArgs e)
         {
+            
             if(scanfrmlogin==true)
             {
+                Button tam = (Button)sender;
+                buttonclick(sender, e);
+                lastname = tam.Name;
                 UserControl us = new UC_DatPhong();
                 showControlND(us);
             }
@@ -63,6 +79,9 @@ namespace GUI
         {
             if(scanfrmlogin==true)
             {
+                Button tam = (Button)sender;
+                buttonclick(sender, e);
+                lastname = tam.Name;
                 UserControl us = new UC_SuDungDichVu();
                 showControlND(us);
             }
@@ -70,14 +89,24 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            UserControl us = new UC_HoadonPhong();
-            showControlND(us);
+            if (scanfrmlogin == true)
+            {
+                Button tam = (Button)sender;
+                buttonclick(sender, e);
+                lastname = tam.Name;
+                UserControl us = new UC_HoadonPhong();
+                showControlND(us);
+            }
+                
         }
 
         private void btnLoaiPhong_Click(object sender, EventArgs e)
         {
             if(scanfrmlogin==true)
             {
+                Button tam = (Button)sender;
+                buttonclick(sender, e);
+                lastname = tam.Name;
                 UserControl us = new UC_loaiphong();
                 showControlND(us);
             }
@@ -87,6 +116,9 @@ namespace GUI
         {
             if(scanfrmlogin==true)
             {
+                Button tam = (Button)sender;
+                buttonclick(sender, e);
+                lastname = tam.Name;
                 UserControl us = new UC_Phong();
                 showControlND(us);
             }
@@ -97,6 +129,9 @@ namespace GUI
         {
             if(scanfrmlogin==true)
             {
+                Button tam = (Button)sender;
+                buttonclick(sender, e);
+                lastname = tam.Name;
                 UserControl us = new UC_dichvu();
                 showControlND(us);
             }
@@ -107,6 +142,9 @@ namespace GUI
         {
             if(scanfrmlogin==true)
             {
+                Button tam = (Button)sender;
+                buttonclick(sender, e);
+                lastname = tam.Name;
                 UserControl us = new UC_nhanvien();
                 showControlND(us);
             }
@@ -171,6 +209,9 @@ namespace GUI
         {
             if(scanfrmlogin ==true)
             {
+                Button tam = (Button)sender;
+                buttonclick(sender, e);
+                lastname = tam.Name;
                 UC_DoanhThu Doanhthu = new UC_DoanhThu();
                 showControlND(Doanhthu);
             }
