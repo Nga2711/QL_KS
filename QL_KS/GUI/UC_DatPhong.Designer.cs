@@ -42,12 +42,12 @@
             this.txtMa = new System.Windows.Forms.TextBox();
             this.pnThongTinPhong = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbb_quoctich = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.cboGioiTinh = new System.Windows.Forms.ComboBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.txtQuocTich = new System.Windows.Forms.TextBox();
             this.txtCMND = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -102,6 +102,7 @@
             // 
             // txtTinhTrang
             // 
+            this.txtTinhTrang.Enabled = false;
             this.txtTinhTrang.Location = new System.Drawing.Point(73, 85);
             this.txtTinhTrang.Name = "txtTinhTrang";
             this.txtTinhTrang.Size = new System.Drawing.Size(145, 20);
@@ -118,6 +119,7 @@
             // 
             // txtGia
             // 
+            this.txtGia.Enabled = false;
             this.txtGia.Location = new System.Drawing.Point(73, 120);
             this.txtGia.Name = "txtGia";
             this.txtGia.Size = new System.Drawing.Size(145, 20);
@@ -125,6 +127,7 @@
             // 
             // txtLoaiPhong
             // 
+            this.txtLoaiPhong.Enabled = false;
             this.txtLoaiPhong.Location = new System.Drawing.Point(73, 51);
             this.txtLoaiPhong.Name = "txtLoaiPhong";
             this.txtLoaiPhong.Size = new System.Drawing.Size(145, 20);
@@ -180,6 +183,7 @@
             // 
             // txtMa
             // 
+            this.txtMa.Enabled = false;
             this.txtMa.Location = new System.Drawing.Point(73, 19);
             this.txtMa.Name = "txtMa";
             this.txtMa.Size = new System.Drawing.Size(145, 20);
@@ -211,12 +215,12 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Lavender;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.cbb_quoctich);
             this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.btnCapNhat);
             this.panel2.Controls.Add(this.cboGioiTinh);
             this.panel2.Controls.Add(this.txtDiaChi);
-            this.panel2.Controls.Add(this.txtQuocTich);
             this.panel2.Controls.Add(this.txtCMND);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label8);
@@ -233,6 +237,260 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(190, 270);
             this.panel2.TabIndex = 42;
+            // 
+            // cbb_quoctich
+            // 
+            this.cbb_quoctich.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbb_quoctich.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbb_quoctich.FormattingEnabled = true;
+            this.cbb_quoctich.Items.AddRange(new object[] {
+            "",
+            "AFGHANISTAN",
+            "ÅLAND ISLANDS",
+            "ALBANIA",
+            "ALGERIA",
+            "AMERICAN SAMOA",
+            "ANDORRA",
+            "ANGOLA",
+            "ANGUILLA",
+            "ANTARCTICA",
+            "ANTIGUA AND BARBUDA",
+            "ARGENTINA",
+            "ARMENIA",
+            "ARUBA",
+            "AUSTRALIA",
+            "AUSTRIA",
+            "AZERBAIJAN",
+            "BAHAMAS",
+            "BAHRAIN",
+            "BANGLADESH",
+            "BARBADOS",
+            "BELARUS",
+            "BELGIUM",
+            "BELIZE",
+            "BENIN",
+            "BERMUDA",
+            "BHUTAN",
+            "BOLIVIA",
+            "BOSNIA AND HERZEGOVINA",
+            "BOTSWANA",
+            "BOUVET ISLAND",
+            "BRAZIL",
+            "BRITISH INDIAN OCEAN TERRITORY",
+            "BRUNEI DARUSSALAM",
+            "BULGARIA",
+            "BURKINA FASO",
+            "BURUNDI",
+            "CAMBODIA",
+            "CAMEROON",
+            "CANADA",
+            "CAPE VERDE",
+            "CAYMAN ISLANDS",
+            "CENTRAL AFRICAN REPUBLIC",
+            "CHAD",
+            "CHILE",
+            "CHINA",
+            "CHRISTMAS ISLAND",
+            "COCOS (KEELING) ISLANDS",
+            "COLOMBIA",
+            "COMOROS",
+            "CONGO",
+            "CONGO, THE DEMOCRATIC REPUBLIC OF THE",
+            "COOK ISLANDS",
+            "COSTA RICA",
+            "CÔTE D\'IVOIRE",
+            "CROATIA",
+            "CUBA",
+            "CYPRUS",
+            "CZECH REPUBLIC",
+            "DENMARK",
+            "DJIBOUTI",
+            "DOMINICA",
+            "DOMINICAN REPUBLIC",
+            "ECUADOR",
+            "EGYPT",
+            "EL SALVADOR",
+            "EQUATORIAL GUINEA",
+            "ERITREA",
+            "ESTONIA",
+            "ETHIOPIA",
+            "FALKLAND ISLANDS (MALVINAS)",
+            "FAROE ISLANDS",
+            "FIJI",
+            "FINLAND",
+            "FRANCE",
+            "FRENCH GUIANA",
+            "FRENCH POLYNESIA",
+            "FRENCH SOUTHERN TERRITORIES",
+            "GABON",
+            "GAMBIA",
+            "GEORGIA",
+            "GERMANY",
+            "GHANA",
+            "GIBRALTAR",
+            "GREECE",
+            "GREENLAND",
+            "GRENADA",
+            "GUADELOUPE",
+            "GUAM",
+            "GUATEMALA",
+            "GUINEA",
+            "GUINEA-BISSAU",
+            "GUYANA",
+            "HAITI",
+            "HEARD ISLAND AND MCDONALD ISLANDS",
+            "HOLY SEE (VATICAN CITY STATE)",
+            "HONDURAS",
+            "HONG KONG",
+            "HUNGARY",
+            "ICELAND",
+            "INDIA",
+            "INDONESIA",
+            "IRAN, ISLAMIC REPUBLIC OF",
+            "IRAQ",
+            "IRELAND",
+            "ISRAEL",
+            "ITALY",
+            "JAMAICA",
+            "JAPAN",
+            "JORDAN",
+            "KAZAKHSTAN",
+            "KENYA",
+            "KIRIBATI",
+            "KOREA, DEMOCRATIC PEOPLE\'S REPUBLIC OF",
+            "KOREA, REPUBLIC OF",
+            "KUWAIT",
+            "KYRGYZSTAN",
+            "LAO PEOPLE\'S DEMOCRATIC REPUBLIC",
+            "LATVIA",
+            "LEBANON",
+            "LESOTHO",
+            "LIBERIA",
+            "LIBYAN ARAB JAMAHIRIYA",
+            "LIECHTENSTEIN",
+            "LITHUANIA",
+            "LUXEMBOURG",
+            "MACAO",
+            "MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF",
+            "MADAGASCAR",
+            "MALAWI",
+            "MALAYSIA",
+            "MALDIVES",
+            "MALI",
+            "MALTA",
+            "MARSHALL ISLANDS",
+            "MARTINIQUE",
+            "MAURITANIA",
+            "MAURITIUS",
+            "MAYOTTE",
+            "MEXICO",
+            "MICRONESIA, FEDERATED STATES OF",
+            "MOLDOVA, REPUBLIC OF",
+            "MONACO",
+            "MONGOLIA",
+            "MONTSERRAT",
+            "MOROCCO",
+            "MOZAMBIQUE",
+            "MYANMAR",
+            "NAMIBIA",
+            "NAURU",
+            "NEPAL",
+            "NETHERLANDS",
+            "NETHERLANDS ANTILLES",
+            "NEW CALEDONIA",
+            "NEW ZEALAND",
+            "NICARAGUA",
+            "NIGER",
+            "NIGERIA",
+            "NIUE",
+            "NORFOLK ISLAND",
+            "NORTHERN MARIANA ISLANDS",
+            "NORWAY",
+            "OMAN",
+            "PAKISTAN",
+            "PALAU",
+            "PALESTINIAN TERRITORY, OCCUPIED",
+            "PANAMA",
+            "PAPUA NEW GUINEA",
+            "PARAGUAY",
+            "PERU",
+            "PHILIPPINES",
+            "PITCAIRN",
+            "POLAND",
+            "PORTUGAL",
+            "PUERTO RICO",
+            "QATAR",
+            "RÉUNION",
+            "ROMANIA",
+            "RUSSIAN FEDERATION",
+            "RWANDA",
+            "SAINT HELENA",
+            "SAINT KITTS AND NEVIS",
+            "SAINT LUCIA",
+            "SAINT PIERRE AND MIQUELON",
+            "SAINT VINCENT AND THE GRENADINES",
+            "SAMOA",
+            "SAN MARINO",
+            "SAO TOME AND PRINCIPE",
+            "SAUDI ARABIA",
+            "SENEGAL",
+            "SERBIA AND MONTENEGRO",
+            "SEYCHELLES",
+            "SIERRA LEONE",
+            "SINGAPORE",
+            "SLOVAKIA",
+            "SLOVENIA",
+            "SOLOMON ISLANDS",
+            "SOMALIA",
+            "SOUTH AFRICA",
+            "SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS",
+            "SPAIN",
+            "SRI LANKA",
+            "SUDAN",
+            "SURINAME",
+            "SVALBARD AND JAN MAYEN",
+            "SWAZILAND",
+            "SWEDEN",
+            "SWITZERLAND",
+            "SYRIAN ARAB REPUBLIC",
+            "TAIWAN, PROVINCE OF CHINA",
+            "TAJIKISTAN",
+            "TANZANIA, UNITED REPUBLIC OF",
+            "THAILAND",
+            "TIMOR-LESTE",
+            "TOGO",
+            "TOKELAU",
+            "TONGA",
+            "TRINIDAD AND TOBAGO",
+            "TUNISIA",
+            "TURKEY",
+            "TURKMENISTAN",
+            "TURKS AND CAICOS ISLANDS",
+            "TUVALU",
+            "UGANDA",
+            "UKRAINE",
+            "UNITED ARAB EMIRATES",
+            "UNITED KINGDOM",
+            "UNITED STATES",
+            "UNITED STATES MINOR OUTLYING ISLANDS",
+            "URUGUAY",
+            "UZBEKISTAN",
+            "VANUATU",
+            "Vatican City State see HOLY SEE                                                  " +
+                "                                                                    VA",
+            "VENEZUELA",
+            "VIET NAM",
+            "VIRGIN ISLANDS, BRITISH",
+            "VIRGIN ISLANDS, U.S.",
+            "WALLIS AND FUTUNA",
+            "WESTERN SAHARA",
+            "YEMEN",
+            "ZAMBIA",
+            "ZIMBABWE"});
+            this.cbb_quoctich.Location = new System.Drawing.Point(82, 201);
+            this.cbb_quoctich.Name = "cbb_quoctich";
+            this.cbb_quoctich.Size = new System.Drawing.Size(98, 21);
+            this.cbb_quoctich.TabIndex = 41;
             // 
             // label21
             // 
@@ -266,11 +524,12 @@
             // 
             // cboGioiTinh
             // 
+            this.cboGioiTinh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboGioiTinh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cboGioiTinh.FormattingEnabled = true;
             this.cboGioiTinh.Items.AddRange(new object[] {
             "Nam",
-            "Nữ",
-            "Khác"});
+            "Nữ"});
             this.cboGioiTinh.Location = new System.Drawing.Point(82, 86);
             this.cboGioiTinh.Name = "cboGioiTinh";
             this.cboGioiTinh.Size = new System.Drawing.Size(98, 21);
@@ -282,13 +541,6 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(98, 20);
             this.txtDiaChi.TabIndex = 33;
-            // 
-            // txtQuocTich
-            // 
-            this.txtQuocTich.Location = new System.Drawing.Point(82, 206);
-            this.txtQuocTich.Name = "txtQuocTich";
-            this.txtQuocTich.Size = new System.Drawing.Size(98, 20);
-            this.txtQuocTich.TabIndex = 32;
             // 
             // txtCMND
             // 
@@ -330,6 +582,7 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(98, 20);
             this.txtTen.TabIndex = 27;
+            this.txtTen.TextChanged += new System.EventHandler(this.txtTen_TextChanged);
             // 
             // txtSDT
             // 
@@ -340,6 +593,7 @@
             // 
             // txtKHma
             // 
+            this.txtKHma.Enabled = false;
             this.txtKHma.Location = new System.Drawing.Point(82, 28);
             this.txtKHma.Name = "txtKHma";
             this.txtKHma.Size = new System.Drawing.Size(98, 20);
@@ -485,6 +739,7 @@
             // 
             // txtmaphieu
             // 
+            this.txtmaphieu.Enabled = false;
             this.txtmaphieu.Location = new System.Drawing.Point(75, 24);
             this.txtmaphieu.Name = "txtmaphieu";
             this.txtmaphieu.Size = new System.Drawing.Size(141, 20);
@@ -586,7 +841,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox cboGioiTinh;
         private System.Windows.Forms.TextBox txtDiaChi;
-        private System.Windows.Forms.TextBox txtQuocTich;
         private System.Windows.Forms.TextBox txtCMND;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -618,5 +872,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvKhachHang;
         private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.ComboBox cbb_quoctich;
     }
 }

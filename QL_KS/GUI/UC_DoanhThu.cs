@@ -19,7 +19,6 @@ namespace GUI
             C_bieudo.ChartAreas["ChartArea1"].AxisX.Title = "Tháng";
             C_bieudo.ChartAreas["ChartArea2"].AxisX.Title = "VND";
         }
-        private decimal sum;
         private DateTime GetLastDayOfMonth(DateTime dtInput)
         {
             DateTime dtResult = dtInput;

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
+using System.Windows.Input;
+
 namespace GUI
 {
     public partial class UC_login : UserControl
@@ -61,6 +63,26 @@ namespace GUI
         private void UC_login_MouseLeave(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+
+        private void txt_ID_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if(e.KeyCode== Keys.Enter)
+            {
+                EventArgs test = new EventArgs();
+                btn_login_Click(sender, test);
+            }
+            
+        }
+
+        private void txt_password_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EventArgs test = new EventArgs();
+                btn_login_Click(sender, test);
+            }
         }
     }
 }

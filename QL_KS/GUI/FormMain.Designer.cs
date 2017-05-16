@@ -37,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDatPhong = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSoLuongKhach = new System.Windows.Forms.Button();
             this.btnLoaiPhong = new System.Windows.Forms.Button();
             this.ntnNhanVien = new System.Windows.Forms.Button();
             this.btnDichVu = new System.Windows.Forms.Button();
@@ -80,7 +79,7 @@
             // 
             this.lbDanhMuc.AutoSize = true;
             this.lbDanhMuc.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lbDanhMuc.Location = new System.Drawing.Point(10, 127);
+            this.lbDanhMuc.Location = new System.Drawing.Point(4, 127);
             this.lbDanhMuc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDanhMuc.Name = "lbDanhMuc";
             this.lbDanhMuc.Size = new System.Drawing.Size(78, 15);
@@ -121,7 +120,7 @@
             this.btnDoanhThu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
             this.btnDoanhThu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnDoanhThu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDoanhThu.Location = new System.Drawing.Point(13, 345);
+            this.btnDoanhThu.Location = new System.Drawing.Point(18, 309);
             this.btnDoanhThu.Margin = new System.Windows.Forms.Padding(4);
             this.btnDoanhThu.Name = "btnDoanhThu";
             this.btnDoanhThu.Size = new System.Drawing.Size(191, 30);
@@ -165,24 +164,6 @@
             this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 15;
             this.label2.Text = "▼ Quản lý";
-            // 
-            // btnSoLuongKhach
-            // 
-            this.btnSoLuongKhach.BackColor = System.Drawing.Color.Silver;
-            this.btnSoLuongKhach.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnSoLuongKhach.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSoLuongKhach.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
-            this.btnSoLuongKhach.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.btnSoLuongKhach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSoLuongKhach.Location = new System.Drawing.Point(12, 309);
-            this.btnSoLuongKhach.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSoLuongKhach.Name = "btnSoLuongKhach";
-            this.btnSoLuongKhach.Size = new System.Drawing.Size(191, 30);
-            this.btnSoLuongKhach.TabIndex = 17;
-            this.btnSoLuongKhach.Text = "Số lượng khách";
-            this.btnSoLuongKhach.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSoLuongKhach.UseVisualStyleBackColor = false;
-            this.btnSoLuongKhach.Click += new System.EventHandler(this.btnSoLuongKhach_Click);
             // 
             // btnLoaiPhong
             // 
@@ -288,7 +269,7 @@
             // 
             this.lbBaoCao.AutoSize = true;
             this.lbBaoCao.ForeColor = System.Drawing.Color.Navy;
-            this.lbBaoCao.Location = new System.Drawing.Point(10, 290);
+            this.lbBaoCao.Location = new System.Drawing.Point(9, 290);
             this.lbBaoCao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbBaoCao.Name = "lbBaoCao";
             this.lbBaoCao.Size = new System.Drawing.Size(71, 15);
@@ -306,7 +287,6 @@
             this.panel2.Controls.Add(this.btnDatPhong);
             this.panel2.Controls.Add(this.lbDanhMuc);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btnSoLuongKhach);
             this.panel2.Controls.Add(this.btnLoaiPhong);
             this.panel2.Controls.Add(this.ntnNhanVien);
             this.panel2.Controls.Add(this.btnDichVu);
@@ -364,7 +344,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDatPhong;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSoLuongKhach;
         private System.Windows.Forms.Button btnLoaiPhong;
         private System.Windows.Forms.Button ntnNhanVien;
         private System.Windows.Forms.Button btnDichVu;

@@ -14,6 +14,10 @@ namespace GUI
 {
     public partial class UC_DatPhong : UserControl
     {
+        private bool active = false;
+        private bool activeseach = false;
+        private string lastc;
+        private int lasti;
         public UC_DatPhong()
         {
             InitializeComponent();
@@ -50,10 +54,10 @@ namespace GUI
 
         void HienThi_cboNVxacnhan()
         {
-            DataTable dt =nv.get_nhanvien();
-           cboNVxaclap.DataSource = dt;
+            DataTable dt = nv.get_nhanvien();
+            cboNVxaclap.DataSource = dt;
             cboNVxaclap.DisplayMember = "ma";
-           cboNVxaclap.ValueMember = "ma";
+            cboNVxaclap.ValueMember = "ma";
         }
 
         //void Phong_Ban()
@@ -111,17 +115,17 @@ namespace GUI
             string sql = "Select tinhtrang from phong where ma='" + txtPhongMa.Text + "'";
             dt = DBConnect.GetData(sql);
             string x;
-            x= dt.Rows[0][0].ToString();
-            if (string.Compare(x,"trống",true) == 0)
+            x = dt.Rows[0][0].ToString();
+            if (string.Compare(x, "trống", true) == 0)
             {
                 return 0;
             }
             return 1;
         }
 
- 
 
- 
+
+
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -130,28 +134,28 @@ namespace GUI
                 MessageBox.Show("Xin mời nhập thông tin đầy đủ");
                 return;
             }
-            if (TinhTrang1()==0)
-             {
-            try
+            if (TinhTrang1() == 0)
+            {
+                try
                 {
                     pt.Ma = txtmaphieu.Text;
                     pt.Ngayden = Convert.ToDateTime(dtpngay.Text);
                     pt.Nhanvienxacnhan = cboNVxaclap.Text;
                     pt.Khachhangma = cboKHma.Text;
                     pt.Phongma = txtPhongMa.Text;
-                    pt.them_phieuthue();                       
+                    pt.them_phieuthue();
                     p.Ma = txtPhongMa.Text;
                     p.capnhatttphong();
                     MessageBox.Show("Đã thêm thành công!");
-                   
-             }
+
+                }
                 catch
                 {
                     MessageBox.Show("Lỗi!");
                     return;
                 }
-             
-           }
+
+            }
             else
             {
                 MessageBox.Show("Phòng này đang bận! Chọn phòng trống!");
@@ -160,11 +164,11 @@ namespace GUI
             SetNull1();
         }
 
-     
+
 
         private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
-            if (txtKHma.Text == "")
+            if (txtKHma.Text == ""||txtTen.Text==""||cboGioiTinh.Text==""||txtCMND.Text=="")
             {
                 MessageBox.Show("Xin mời nhập thông tin đầy đủ");
                 return;
@@ -185,7 +189,7 @@ namespace GUI
                 kh.Sdt = txtSDT.Text;
                 kh.Cmnd = txtCMND.Text;
                 kh.Diachi = txtDiaChi.Text;
-                kh.Quoctich = txtQuocTich.Text;
+                kh.Quoctich = cbb_quoctich.Text;
                 kh.them_khachhang();
                 MessageBox.Show("Đã thêm thành công!");
             }
@@ -208,5 +212,79 @@ namespace GUI
             frmDSphieuthue frm = new frmDSphieuthue();
             frm.ShowDialog();
         }
+
+        private void txtTen_TextChanged(object sender, EventArgs e)
+        {
+            
+            if (active == false)
+            {
+                DataTable dt;
+                string id = "KH";
+                int x = 0;
+                Random a = new Random();
+                do
+                {
+                    while (x == 0)
+                    {
+                        x = a.Next(0, 99999999);
+                    }
+
+                    if (x.ToString().Length < 8)
+
+                    {
+                        for (int i = 0; i < 8 - x.ToString().Length; i++)
+                        {
+                            id += '0';
+                        }
+                    }
+                    dt = DBConnect.GetData("select ma from khachang where ma = '"+id+"'");
+                } while (dt!=null);
+                id += x.ToString();
+                txtKHma.Text = id;
+
+                active = true;
+            }
+
+        }
+
+        private void cbb_quoctich_MouseClick(object sender, MouseEventArgs e)
+        {
+            ToolTip a = new ToolTip();
+            a.SetToolTip(cbb_quoctich, cbb_quoctich.SelectedText);
+        }
+
+        private bool scanvalue(string text, DataColumn dt)
+        {
+            foreach(var item in dt.Table.Rows)
+            {
+                if(item.ToString()== text)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private string seachtext(string text , DataColumn dt)
+        {
+            if(text== lastc)
+            {
+                lasti++;
+            }
+            else
+            {
+                lasti = 0;
+                lastc = text;
+            }
+            for(int i = 0;i<dt.Table.Rows.Count;i++)
+            {
+                if(dt.Table.Rows[i].ToString().Contains(text)&&i == lasti)
+                {
+                    return dt.Table.Rows[i].ToString();
+                }
+            }
+            return "";
+        }
+
+
     }
 }

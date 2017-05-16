@@ -42,6 +42,7 @@
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.Size = new System.Drawing.Size(164, 20);
             this.txt_ID.TabIndex = 0;
+            this.txt_ID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_ID_KeyDown);
             // 
             // txt_password
             // 
@@ -49,6 +50,7 @@
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(164, 20);
             this.txt_password.TabIndex = 1;
+            this.txt_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_password_KeyDown);
             // 
             // lbl_ID
             // 

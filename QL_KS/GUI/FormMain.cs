@@ -15,7 +15,6 @@ namespace GUI
 
     public partial class FormMain : Form
     {
-        private string name;
         private string lastname;
        private void buttonclick(object sender, EventArgs e)
         {
