@@ -207,5 +207,28 @@ namespace GUI
                 txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
             }
         }
+
+        private void btnThem_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    SetNull();
+                    if (dgvLoaiPhong.DataSource != null)
+                    {
+                        List<string> list = ((DataTable)dgvLoaiPhong.DataSource).AsEnumerable().Select(x => x.Field<string>(dgvLoaiPhong.Columns[0].Name)).ToList();
+                        if (list.Count > 0) txtma.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
+                        else txtma.Text = "0000000001";
+                    }
+                    else txtma.Text = "0000000001";                
+                }
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

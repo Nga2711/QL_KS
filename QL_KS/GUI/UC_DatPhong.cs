@@ -14,10 +14,10 @@ namespace GUI
 {
     public partial class UC_DatPhong : UserControl
     {
-        private bool active = false;
-        private bool activeseach = false;
-        private string lastc;
-        private int lasti;
+        //private bool active = false;
+        //private bool activeseach = false;
+        //private string lastc;
+        //private int lasti;
         public UC_DatPhong()
         {
             InitializeComponent();
@@ -37,6 +37,38 @@ namespace GUI
             txtGia.Enabled = false;
             txtLoaiPhong.Enabled = false;
         }
+
+        void KhoaKH()
+        {
+            txtTen.Enabled = false;
+            cboGioiTinh.Enabled = false;
+            txtSDT.Enabled = false;
+            txtCMND.Enabled = false;
+            txtDiaChi.Enabled = false;
+            cbb_quoctich.Enabled = false;
+        }
+
+        void MoKH()
+        {
+            txtTen.Enabled = true;
+            cboGioiTinh.Enabled = true;
+            txtSDT.Enabled = true;
+            txtCMND.Enabled = true;
+            txtDiaChi.Enabled = true;
+            cbb_quoctich.Enabled = true;
+        }
+
+        void KhoaPT()
+        {
+            dtpngay.Enabled = false;
+            cboNVxaclap.Enabled = false;
+        }
+
+        void MoPT()
+        {
+            dtpngay.Enabled = true;
+            cboNVxaclap.Enabled = true;
+        }
         void SetNull()
         {
             txtMa.Text = "";
@@ -50,6 +82,17 @@ namespace GUI
             cboNVxaclap.Text = "";
             cboKHma.Text = "";
             txtPhongMa.Text = "";
+        }
+
+        void SetNullKH()
+        {
+            txtKHma.Text = "";
+            txtTen.Text = "";
+            cboGioiTinh.Text = "";
+            txtSDT.Text = "";
+            txtCMND.Text = "";
+            txtDiaChi.Text = "";
+            cbb_quoctich.Text = "";
         }
 
         void HienThi_cboNVxacnhan()
@@ -102,11 +145,14 @@ namespace GUI
         }
 
         private void UC_DatPhong_Load(object sender, EventArgs e)
-        {
+        {           
             KhoaDieuKhien();
             HienThi();
             HienThi_TTKH();
             HienThi_cboNVxacnhan();
+            KhoaKH();
+            KhoaPT();
+          
         }
 
         public int TinhTrang1()
@@ -168,7 +214,7 @@ namespace GUI
 
         private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
-            if (txtKHma.Text == ""||txtTen.Text==""||cboGioiTinh.Text==""||txtCMND.Text=="")
+            if (txtTen.Text==""||cboGioiTinh.Text==""||txtCMND.Text=="")
             {
                 MessageBox.Show("Xin mời nhập thông tin đầy đủ");
                 return;
@@ -199,6 +245,7 @@ namespace GUI
                 return;
             }
             HienThi_TTKH();
+            SetNullKH();
         }
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -216,75 +263,136 @@ namespace GUI
         private void txtTen_TextChanged(object sender, EventArgs e)
         {
             
-            if (active == false)
-            {
-                DataTable dt;
-                string id = "KH";
-                int x = 0;
-                Random a = new Random();
-                do
-                {
-                    while (x == 0)
-                    {
-                        x = a.Next(0, 99999999);
-                    }
+        //    if (active == false)
+        //    {
+        //        DataTable dt;
+        //        string id = "KH";
+        //        int x = 0;
+        //        Random a = new Random();
+        //        do
+        //        {
+        //            while (x == 0)
+        //            {
+        //                x = a.Next(0, 99999999);
+        //            }
 
-                    if (x.ToString().Length < 8)
+        //            if (x.ToString().Length < 8)
 
-                    {
-                        for (int i = 0; i < 8 - x.ToString().Length; i++)
-                        {
-                            id += '0';
-                        }
-                    }
-                    dt = DBConnect.GetData("select ma from khachang where ma = '"+id+"'");
-                } while (dt!=null);
-                id += x.ToString();
-                txtKHma.Text = id;
+        //            {
+        //                for (int i = 0; i < 8 - x.ToString().Length; i++)
+        //                {
+        //                    id += '0';
+        //                }
+        //            }
+        //            dt = DBConnect.GetData("select ma from khachang where ma = '"+id+"'");
+        //        } while (dt!=null);
+        //        id += x.ToString();
+        //        txtKHma.Text = id;
 
-                active = true;
-            }
+        //        active = true;
+        //    }
 
         }
 
         private void cbb_quoctich_MouseClick(object sender, MouseEventArgs e)
         {
+           
             ToolTip a = new ToolTip();
             a.SetToolTip(cbb_quoctich, cbb_quoctich.SelectedText);
         }
 
-        private bool scanvalue(string text, DataColumn dt)
+        //private bool scanvalue(string text, DataColumn dt)
+        //{
+        //    foreach(var item in dt.Table.Rows)
+        //    {
+        //        if(item.ToString()== text)
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
+        //private string seachtext(string text , DataColumn dt)
+        //{
+        //    if(text== lastc)
+        //    {
+        //        lasti++;
+        //    }
+        //    else
+        //    {
+        //        lasti = 0;
+        //        lastc = text;
+        //    }
+        //    for(int i = 0;i<dt.Table.Rows.Count;i++)
+        //    {
+        //        if(dt.Table.Rows[i].ToString().Contains(text)&&i == lasti)
+        //        {
+        //            return dt.Table.Rows[i].ToString();
+        //        }
+        //    }
+        //    return "";
+        //}
+
+        private void btnLuu_MouseClick(object sender, MouseEventArgs e)
         {
-            foreach(var item in dt.Table.Rows)
-            {
-                if(item.ToString()== text)
-                {
-                    return true;
-                }
-            }
-            return false;
+           
         }
-        private string seachtext(string text , DataColumn dt)
+      
+        private void btnCapNhat_MouseClick(object sender, MouseEventArgs e)
         {
-            if(text== lastc)
-            {
-                lasti++;
-            }
-            else
-            {
-                lasti = 0;
-                lastc = text;
-            }
-            for(int i = 0;i<dt.Table.Rows.Count;i++)
-            {
-                if(dt.Table.Rows[i].ToString().Contains(text)&&i == lasti)
-                {
-                    return dt.Table.Rows[i].ToString();
-                }
-            }
-            return "";
+           
         }
 
+        private void btnThem_MouseClick(object sender, MouseEventArgs e)
+        {
+            MoKH();
+            if (e.Button == MouseButtons.Left)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    txtKHma.Text = null;
+                    DataTable dt = kh.get_khachhang();
+                    if (dt != null)
 
+                    {
+                        List<string> list = ((DataTable)dt).AsEnumerable().Select(x => x.Field<string>(dt.Columns[0])).ToList();
+                        if (list.Count > 0) txtKHma.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
+                        else txtKHma.Text = "0000000001";
+                    }
+                    else txtKHma.Text = "0000000001";
+                }
+            }
+        }
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+            MoPT();
+            if (e.Button == MouseButtons.Left)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    txtmaphieu.Text = null;
+                    DataTable dt = pt.get_phieuthue();
+                    if (dt != null)
+
+                    {
+                        List<string> list = ((DataTable)dt).AsEnumerable().Select(x => x.Field<string>(dt.Columns[0])).ToList();
+                        if (list.Count > 0) txtmaphieu.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
+                        else txtmaphieu.Text = "0000000001";
+                    }
+                    else txtmaphieu.Text = "0000000001";
+                }
+            }
+        }
+
+        private void pnThongTinPhong_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
