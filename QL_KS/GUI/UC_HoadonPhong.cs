@@ -133,6 +133,43 @@ namespace GUI
 
         private void dtpngaydi_ValueChanged(object sender, EventArgs e)
         {
+        //    try
+        //    {
+        //        DataTable dt = new DataTable();
+        //        DataTable dt1 = new DataTable();
+        //        DataTable dt2 = new DataTable();
+        //        string sql = @"Select phongma from phieuthue where ma='" + cboPTma.Text + "'";
+        //        dt = DBConnect.GetData(sql);
+        //        txtPhongma.Text = dt.Rows[0][0].ToString();
+        //        string sql1 = @"Select ngayden from phieuthue where ma='" + cboPTma.Text + "'";
+        //        dt1 = DBConnect.GetData(sql1);
+        //        DateTime ngayden = Convert.ToDateTime(dt1.Rows[0][0].ToString());
+        //        TimeSpan ts;
+        //        ts = Convert.ToDateTime(dtpngaydi.Text) - ngayden;
+        //        txtSongay.Text = Convert.ToString(ts.TotalDays);
+        //        string sql2 = @"Select gia from loaiphong, phong where phong.ma='" + txtPhongma.Text + "'and phong.loaiphongma=loaiphong.ma ";
+        //        dt2 = DBConnect.GetData(sql2);
+        //        int a;
+        //        int.TryParse(txtSongay.Text, out a);
+        //        decimal gia = Convert.ToDecimal(dt2.Rows[0][0].ToString());
+        //        if (txtSongay.Text == "0")
+        //        {
+        //            txtThanhTien.Text = Convert.ToString(gia);
+        //        }
+        //        else
+        //        {
+        //            txtThanhTien.Text = Convert.ToString(a * gia);
+        //        }
+        //    }
+        //    catch
+        //    {
+
+        //    }
+         
+        }
+
+        private void btnTien_Click(object sender, EventArgs e)
+        {
             DataTable dt = new DataTable();
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
@@ -158,7 +195,7 @@ namespace GUI
             {
                 txtThanhTien.Text = Convert.ToString(a * gia);
             }
-         
+
         }
     }
 }

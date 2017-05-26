@@ -186,6 +186,7 @@
             this.txtGia.Name = "txtGia";
             this.txtGia.Size = new System.Drawing.Size(143, 20);
             this.txtGia.TabIndex = 7;
+            this.txtGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // txtSoLuong
             // 
@@ -193,6 +194,7 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(136, 20);
             this.txtSoLuong.TabIndex = 6;
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // txtTen
             // 

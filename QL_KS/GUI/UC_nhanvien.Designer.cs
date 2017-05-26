@@ -46,12 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +53,12 @@
             this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diachi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matkhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.panel2.SuspendLayout();
@@ -111,6 +111,7 @@
             // 
             // cboGioiTinh
             // 
+            this.cboGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGioiTinh.FormattingEnabled = true;
             this.cboGioiTinh.Items.AddRange(new object[] {
             "Nam",
@@ -166,6 +167,7 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(160, 20);
             this.txtSDT.TabIndex = 10;
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // label7
             // 
@@ -262,6 +264,59 @@
             this.dgvNhanVien.TabIndex = 0;
             this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
             // 
+            // ma
+            // 
+            this.ma.DataPropertyName = "ma";
+            this.ma.HeaderText = "Mã ";
+            this.ma.Name = "ma";
+            this.ma.ReadOnly = true;
+            // 
+            // ten
+            // 
+            this.ten.DataPropertyName = "ten";
+            this.ten.HeaderText = "Tên nhân viên";
+            this.ten.Name = "ten";
+            this.ten.ReadOnly = true;
+            this.ten.Width = 130;
+            // 
+            // gioitinh
+            // 
+            this.gioitinh.DataPropertyName = "gioitinh";
+            this.gioitinh.HeaderText = "Giới tính";
+            this.gioitinh.Name = "gioitinh";
+            this.gioitinh.ReadOnly = true;
+            this.gioitinh.Width = 50;
+            // 
+            // ngaysinh
+            // 
+            this.ngaysinh.DataPropertyName = "ngaysinh";
+            this.ngaysinh.HeaderText = "Ngày sinh";
+            this.ngaysinh.Name = "ngaysinh";
+            this.ngaysinh.ReadOnly = true;
+            // 
+            // sdt
+            // 
+            this.sdt.DataPropertyName = "sdt";
+            this.sdt.HeaderText = "Số điện thoại";
+            this.sdt.Name = "sdt";
+            this.sdt.ReadOnly = true;
+            this.sdt.Width = 120;
+            // 
+            // diachi
+            // 
+            this.diachi.DataPropertyName = "diachi";
+            this.diachi.HeaderText = "Địa chỉ";
+            this.diachi.Name = "diachi";
+            this.diachi.ReadOnly = true;
+            this.diachi.Width = 127;
+            // 
+            // matkhau
+            // 
+            this.matkhau.DataPropertyName = "matkhau";
+            this.matkhau.HeaderText = "Mật khẩu";
+            this.matkhau.Name = "matkhau";
+            this.matkhau.ReadOnly = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -338,59 +393,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(763, 41);
             this.panel1.TabIndex = 5;
-            // 
-            // ma
-            // 
-            this.ma.DataPropertyName = "ma";
-            this.ma.HeaderText = "Mã ";
-            this.ma.Name = "ma";
-            this.ma.ReadOnly = true;
-            // 
-            // ten
-            // 
-            this.ten.DataPropertyName = "ten";
-            this.ten.HeaderText = "Tên nhân viên";
-            this.ten.Name = "ten";
-            this.ten.ReadOnly = true;
-            this.ten.Width = 130;
-            // 
-            // gioitinh
-            // 
-            this.gioitinh.DataPropertyName = "gioitinh";
-            this.gioitinh.HeaderText = "Giới tính";
-            this.gioitinh.Name = "gioitinh";
-            this.gioitinh.ReadOnly = true;
-            this.gioitinh.Width = 50;
-            // 
-            // ngaysinh
-            // 
-            this.ngaysinh.DataPropertyName = "ngaysinh";
-            this.ngaysinh.HeaderText = "Ngày sinh";
-            this.ngaysinh.Name = "ngaysinh";
-            this.ngaysinh.ReadOnly = true;
-            // 
-            // sdt
-            // 
-            this.sdt.DataPropertyName = "sdt";
-            this.sdt.HeaderText = "Số điện thoại";
-            this.sdt.Name = "sdt";
-            this.sdt.ReadOnly = true;
-            this.sdt.Width = 120;
-            // 
-            // diachi
-            // 
-            this.diachi.DataPropertyName = "diachi";
-            this.diachi.HeaderText = "Địa chỉ";
-            this.diachi.Name = "diachi";
-            this.diachi.ReadOnly = true;
-            this.diachi.Width = 127;
-            // 
-            // matkhau
-            // 
-            this.matkhau.DataPropertyName = "matkhau";
-            this.matkhau.HeaderText = "Mật khẩu";
-            this.matkhau.Name = "matkhau";
-            this.matkhau.ReadOnly = true;
             // 
             // UC_nhanvien
             // 

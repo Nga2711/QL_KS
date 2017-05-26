@@ -569,8 +569,8 @@
             // 
             // cboGioiTinh
             // 
-            this.cboGioiTinh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboGioiTinh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cboGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGioiTinh.FormattingEnabled = true;
             this.cboGioiTinh.Items.AddRange(new object[] {
             "Nam",
@@ -593,6 +593,7 @@
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(98, 20);
             this.txtCMND.TabIndex = 31;
+            this.txtCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // label7
             // 
@@ -641,6 +642,7 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(98, 20);
             this.txtSDT.TabIndex = 26;
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // txtKHma
             // 

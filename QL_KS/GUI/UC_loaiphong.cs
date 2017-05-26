@@ -34,7 +34,7 @@ namespace GUI
         }
         void MoDieuKhien()
         {
-            txtma.Enabled = true;
+            txtma.Enabled = false;
             txtten.Enabled = true;
             txtgia.Enabled = true;
             txtchatluong.Enabled = true;
@@ -114,7 +114,7 @@ namespace GUI
             {
                 lp.Ma = txtma.Text;
                 lp.xoa_loaiphong(lp.Ma);
-                MessageBox.Show("Đã xóa thành công!");
+                MessageBox.Show("Đã xóa thành công! Cần cập nhật lại thông tin phòng!!!");
                 KhoaDieuKhien();
                 SetNull();
                 HienThi();
@@ -229,6 +229,22 @@ namespace GUI
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtchatluong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtgia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

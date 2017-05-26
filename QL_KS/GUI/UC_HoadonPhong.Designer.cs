@@ -54,6 +54,7 @@
             this.NVma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnTien = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvhoadon)).BeginInit();
             this.SuspendLayout();
@@ -96,6 +97,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnTien);
             this.panel1.Controls.Add(this.txtPhongma);
             this.panel1.Controls.Add(this.cboNVma);
             this.panel1.Controls.Add(this.cboPTma);
@@ -132,6 +134,7 @@
             // 
             // cboPTma
             // 
+            this.cboPTma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPTma.FormattingEnabled = true;
             this.cboPTma.Location = new System.Drawing.Point(85, 17);
             this.cboPTma.Name = "cboPTma";
@@ -321,6 +324,16 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Hóa đơn thanh toán tiền phòng";
             // 
+            // btnTien
+            // 
+            this.btnTien.Location = new System.Drawing.Point(379, 87);
+            this.btnTien.Name = "btnTien";
+            this.btnTien.Size = new System.Drawing.Size(75, 23);
+            this.btnTien.TabIndex = 36;
+            this.btnTien.Text = "Tính tiền";
+            this.btnTien.UseVisualStyleBackColor = true;
+            this.btnTien.Click += new System.EventHandler(this.btnTien_Click);
+            // 
             // UC_HoadonPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,5 +382,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn songay;
         private System.Windows.Forms.DataGridViewTextBoxColumn NVma;
         private System.Windows.Forms.DataGridViewTextBoxColumn thanhtien;
+        private System.Windows.Forms.Button btnTien;
     }
 }

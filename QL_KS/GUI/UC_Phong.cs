@@ -33,7 +33,7 @@ namespace GUI
         }
         void MoDieuKhien()
         {
-            txtMa.Enabled = true;
+            txtMa.Enabled = false;
             txtTinhTrang.Enabled = true;
             cboLoaiPhong.Enabled = true;
             btnThem.Enabled = false;

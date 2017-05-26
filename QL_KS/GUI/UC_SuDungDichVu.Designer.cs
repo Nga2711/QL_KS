@@ -57,6 +57,8 @@
             this.donvitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnXoaAll = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
             this.panel2.SuspendLayout();
@@ -275,6 +277,8 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnXoaAll);
+            this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.dgvGioHang);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(368, 2);
@@ -286,7 +290,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(152, 19);
+            this.label2.Location = new System.Drawing.Point(138, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 24);
             this.label2.TabIndex = 0;
@@ -375,6 +379,36 @@
             this.panel1.Size = new System.Drawing.Size(359, 420);
             this.panel1.TabIndex = 3;
             // 
+            // btnXoaAll
+            // 
+            this.btnXoaAll.BackColor = System.Drawing.Color.Teal;
+            this.btnXoaAll.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnXoaAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoaAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnXoaAll.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnXoaAll.Location = new System.Drawing.Point(266, 19);
+            this.btnXoaAll.Name = "btnXoaAll";
+            this.btnXoaAll.Size = new System.Drawing.Size(65, 30);
+            this.btnXoaAll.TabIndex = 32;
+            this.btnXoaAll.Text = "xoá all";
+            this.btnXoaAll.UseVisualStyleBackColor = false;
+            this.btnXoaAll.Click += new System.EventHandler(this.btnXoaAll_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.BackColor = System.Drawing.Color.Teal;
+            this.btnXoa.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnXoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnXoa.Location = new System.Drawing.Point(337, 19);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(49, 30);
+            this.btnXoa.TabIndex = 31;
+            this.btnXoa.Text = "xoá";
+            this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
             // UC_SuDungDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,5 +463,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn soluongdv;
         private System.Windows.Forms.DataGridViewTextBoxColumn thanhtien;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnXoaAll;
+        private System.Windows.Forms.Button btnXoa;
     }
 }

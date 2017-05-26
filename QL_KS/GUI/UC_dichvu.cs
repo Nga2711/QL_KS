@@ -35,7 +35,7 @@ namespace GUI
 
         void MoDieuKhien()
         {
-            txtMa.Enabled = true;
+            txtMa.Enabled = false;
             txtTen.Enabled = true;
             txtSoLuong.Enabled = true;
             txtDonViTinh.Enabled = true;
@@ -223,6 +223,14 @@ namespace GUI
                     }
                     else txtMa.Text = "0000000001";
                 }
+            }
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

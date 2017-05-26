@@ -107,6 +107,7 @@
             this.txtchatluong.Name = "txtchatluong";
             this.txtchatluong.Size = new System.Drawing.Size(135, 20);
             this.txtchatluong.TabIndex = 8;
+            this.txtchatluong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtchatluong_KeyPress);
             // 
             // txtgia
             // 
@@ -114,6 +115,7 @@
             this.txtgia.Name = "txtgia";
             this.txtgia.Size = new System.Drawing.Size(130, 20);
             this.txtgia.TabIndex = 7;
+            this.txtgia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtgia_KeyPress);
             // 
             // txtten
             // 

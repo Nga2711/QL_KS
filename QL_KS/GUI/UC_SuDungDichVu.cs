@@ -42,10 +42,27 @@ namespace GUI
 
         void HienThi_cboDVma()
         {
-            DataTable dt = dv.get_madichvu();
-            dvma.DataSource = dt;
-            dvma.DisplayMember = "ma";
-            dvma.ValueMember = "ma";
+            //if (dgvGioHang.DataSource == null)
+            //{
+                DataTable dt = dv.get_madichvu();
+                dvma.DataSource = dt;
+                dvma.DisplayMember = "ma";
+                dvma.ValueMember = "ma";
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < dgvGioHang.Rows.Count - 1; i++)
+            //    {
+            //        string sql = @"Select ma from dichvu where ma not in ('" + dgvGioHang[0, i].Value.ToString() + "') ";
+            //        DataTable dt = new DataTable();
+            //        dt = DBConnect.GetData(sql);
+            //        dvma.DataSource = dt;
+            //        dvma.DisplayMember = "ma";
+            //        dvma.ValueMember = "ma";
+            //    }
+            //}
+           
+         
         }
 
         void HienThi_DV()
@@ -60,6 +77,7 @@ namespace GUI
         }
         private void UC_SuDungDichVu_Load(object sender, EventArgs e)
         {
+            txtma.Enabled = false;
             HienThi_DV();
             HienThi_cboKHma();
             HienThi_cboNVma();
@@ -123,6 +141,8 @@ namespace GUI
 
         private void dgvGioHang_SelectionChanged(object sender, EventArgs e)
         {
+             
+          
         }
 
         private void dgvGioHang_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -143,6 +163,7 @@ namespace GUI
                         thanhtien += decimal.Parse(dgvGioHang[2, i].Value.ToString());
                     }
                     txtTongTien.Text = thanhtien.ToString();
+
                 }
                 else
                 {
@@ -154,6 +175,9 @@ namespace GUI
             {
 
             }
+
+            HienThi_cboDVma();
+          
         }
 
         private void dgvGioHang_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -184,6 +208,17 @@ namespace GUI
                     else txtma.Text = "0000000001";
                 }
             }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            int i =dgvGioHang.CurrentRow.Index;
+           dgvGioHang.Rows.RemoveAt(i);
+        }
+
+        private void btnXoaAll_Click(object sender, EventArgs e)
+        {
+            dgvGioHang.Rows.Clear();
         }
     }
 }
