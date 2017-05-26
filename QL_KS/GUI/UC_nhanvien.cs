@@ -223,5 +223,23 @@ namespace GUI
                 txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
             }
         }
+
+        private void btnThem_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    SetNull();
+                    if (dgvNhanVien.DataSource != null)
+                    {
+                        List<string> list = ((DataTable)dgvNhanVien.DataSource).AsEnumerable().Select(x => x.Field<string>(dgvNhanVien.Columns[0].Name)).ToList();
+                        if (list.Count > 0) txtMa.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
+                        else txtMa.Text = "0000000001";
+                    }
+                    else txtMa.Text = "0000000001";           
+                }
+            }
+        }
     }
 }
