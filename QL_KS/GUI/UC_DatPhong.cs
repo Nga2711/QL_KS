@@ -14,10 +14,9 @@ namespace GUI
 {
     public partial class UC_DatPhong : UserControl
     {
-        //private bool active = false;
-        //private bool activeseach = false;
-        //private string lastc;
-        //private int lasti;
+        private bool active = false;
+        private string lastc;
+        private int lasti;
         public UC_DatPhong()
         {
             InitializeComponent();
@@ -114,7 +113,7 @@ namespace GUI
         void HienThi()
         {
             DataTable dt = p.get_phong_loaiphong();
-            dgvPhong_LoaiPhong.DataSource = dt;
+                dgvPhong_LoaiPhong.DataSource = dt;
             dgvPhong_LoaiPhong.Columns["Mã phòng"].Width = 100;
             dgvPhong_LoaiPhong.Columns["Mã loại phòng"].Width = 100;
             dgvPhong_LoaiPhong.Columns["Giá"].Width = 150;
