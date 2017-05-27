@@ -48,6 +48,8 @@
             this.soluongdv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnXoaAll = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDichVu = new System.Windows.Forms.DataGridView();
@@ -57,8 +59,6 @@
             this.donvitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnXoaAll = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGioHang)).BeginInit();
             this.panel2.SuspendLayout();
@@ -101,6 +101,7 @@
             // 
             // txtTongTien
             // 
+            this.txtTongTien.Enabled = false;
             this.txtTongTien.Location = new System.Drawing.Point(245, 90);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(141, 20);
@@ -204,7 +205,7 @@
             this.btnXemDS.Name = "btnXemDS";
             this.btnXemDS.Size = new System.Drawing.Size(96, 34);
             this.btnXemDS.TabIndex = 30;
-            this.btnXemDS.Text = "Xem DSHDDV";
+            this.btnXemDS.Text = "Xem DS";
             this.btnXemDS.UseVisualStyleBackColor = false;
             this.btnXemDS.Click += new System.EventHandler(this.btnXemDS_Click);
             // 
@@ -217,6 +218,7 @@
             // 
             // cboNVma
             // 
+            this.cboNVma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNVma.FormattingEnabled = true;
             this.cboNVma.Location = new System.Drawing.Point(245, 55);
             this.cboNVma.Name = "cboNVma";
@@ -225,6 +227,7 @@
             // 
             // cboKHma
             // 
+            this.cboKHma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKHma.FormattingEnabled = true;
             this.cboKHma.Location = new System.Drawing.Point(44, 89);
             this.cboKHma.Name = "cboKHma";
@@ -285,6 +288,36 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(391, 212);
             this.panel2.TabIndex = 4;
+            // 
+            // btnXoaAll
+            // 
+            this.btnXoaAll.BackColor = System.Drawing.Color.Teal;
+            this.btnXoaAll.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnXoaAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoaAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnXoaAll.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnXoaAll.Location = new System.Drawing.Point(266, 19);
+            this.btnXoaAll.Name = "btnXoaAll";
+            this.btnXoaAll.Size = new System.Drawing.Size(65, 30);
+            this.btnXoaAll.TabIndex = 32;
+            this.btnXoaAll.Text = "xoá all";
+            this.btnXoaAll.UseVisualStyleBackColor = false;
+            this.btnXoaAll.Click += new System.EventHandler(this.btnXoaAll_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.BackColor = System.Drawing.Color.Teal;
+            this.btnXoa.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnXoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnXoa.Location = new System.Drawing.Point(337, 19);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(49, 30);
+            this.btnXoa.TabIndex = 31;
+            this.btnXoa.Text = "xoá";
+            this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // label2
             // 
@@ -378,36 +411,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(359, 420);
             this.panel1.TabIndex = 3;
-            // 
-            // btnXoaAll
-            // 
-            this.btnXoaAll.BackColor = System.Drawing.Color.Teal;
-            this.btnXoaAll.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnXoaAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoaAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnXoaAll.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnXoaAll.Location = new System.Drawing.Point(266, 19);
-            this.btnXoaAll.Name = "btnXoaAll";
-            this.btnXoaAll.Size = new System.Drawing.Size(65, 30);
-            this.btnXoaAll.TabIndex = 32;
-            this.btnXoaAll.Text = "xoá all";
-            this.btnXoaAll.UseVisualStyleBackColor = false;
-            this.btnXoaAll.Click += new System.EventHandler(this.btnXoaAll_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.Teal;
-            this.btnXoa.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnXoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnXoa.Location = new System.Drawing.Point(337, 19);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(49, 30);
-            this.btnXoa.TabIndex = 31;
-            this.btnXoa.Text = "xoá";
-            this.btnXoa.UseVisualStyleBackColor = false;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // UC_SuDungDichVu
             // 

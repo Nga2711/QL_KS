@@ -42,27 +42,10 @@ namespace GUI
 
         void HienThi_cboDVma()
         {
-            //if (dgvGioHang.DataSource == null)
-            //{
                 DataTable dt = dv.get_madichvu();
                 dvma.DataSource = dt;
                 dvma.DisplayMember = "ma";
-                dvma.ValueMember = "ma";
-            //}
-            //else
-            //{
-            //    for (int i = 0; i < dgvGioHang.Rows.Count - 1; i++)
-            //    {
-            //        string sql = @"Select ma from dichvu where ma not in ('" + dgvGioHang[0, i].Value.ToString() + "') ";
-            //        DataTable dt = new DataTable();
-            //        dt = DBConnect.GetData(sql);
-            //        dvma.DataSource = dt;
-            //        dvma.DisplayMember = "ma";
-            //        dvma.ValueMember = "ma";
-            //    }
-            //}
-           
-         
+                dvma.ValueMember = "ma";       
         }
 
         void HienThi_DV()
@@ -129,7 +112,7 @@ namespace GUI
             cboKHma.Text = null;
             cboNVma.Text = null;
             txtTongTien.Text = null;
-            dgvGioHang.DataSource = null;
+            dgvGioHang.Rows.Clear();
         }
 
  
@@ -153,7 +136,7 @@ namespace GUI
                 DataTable dt = new DataTable();
                 string sql = "Select * from dichvu where ma='" + dgvGioHang.Rows[Row_Index].Cells[0].Value.ToString() + "'";
                 dt = DBConnect.GetData(sql);
-                if (int.Parse(dgvGioHang.Rows[Row_Index].Cells[1].Value.ToString()) < int.Parse(dgvDichVu.Rows[Row_Index].Cells[2].Value.ToString()))
+                if (int.Parse(dgvGioHang.Rows[Row_Index].Cells[1].Value.ToString()) < int.Parse(dt.Rows[0][2].ToString()))
                 {
                     decimal a = decimal.Parse(dt.Rows[0][4].ToString()) * decimal.Parse(dgvGioHang.Rows[Row_Index].Cells[1].Value.ToString());
                     dgvGioHang.Rows[Row_Index].Cells[2].Value = a;
@@ -214,27 +197,20 @@ namespace GUI
         {
             try
             {
-                if(dgvGioHang.DataSource != null)
-                {
-                    int i = dgvGioHang.CurrentRow.Index;
-                    dgvGioHang.Rows.RemoveAt(i);
-                }
-              
+                int i = dgvGioHang.CurrentRow.Index;
+                dgvGioHang.Rows.RemoveAt(i);
             }
             catch
             {
 
             }
          
+           
         }
 
         private void btnXoaAll_Click(object sender, EventArgs e)
-        { 
-            if(dgvGioHang.DataSource != null)
-            {
-                dgvGioHang.Rows.Clear();
-            }
-            
+        {          
+                dgvGioHang.Rows.Clear();         
         }
     }
 }

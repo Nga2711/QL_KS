@@ -33,6 +33,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTien = new System.Windows.Forms.Button();
             this.txtPhongma = new System.Windows.Forms.TextBox();
             this.cboNVma = new System.Windows.Forms.ComboBox();
             this.cboPTma = new System.Windows.Forms.ComboBox();
@@ -43,7 +44,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnInHoaDon = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.dgvhoadon = new System.Windows.Forms.DataGridView();
             this.ptma = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,6 @@
             this.NVma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTien = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvhoadon)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +116,16 @@
             this.panel1.Size = new System.Drawing.Size(700, 130);
             this.panel1.TabIndex = 27;
             // 
+            // btnTien
+            // 
+            this.btnTien.Location = new System.Drawing.Point(379, 87);
+            this.btnTien.Name = "btnTien";
+            this.btnTien.Size = new System.Drawing.Size(75, 23);
+            this.btnTien.TabIndex = 36;
+            this.btnTien.Text = "Tính tiền";
+            this.btnTien.UseVisualStyleBackColor = true;
+            this.btnTien.Click += new System.EventHandler(this.btnTien_Click);
+            // 
             // txtPhongma
             // 
             this.txtPhongma.Location = new System.Drawing.Point(557, 19);
@@ -126,6 +135,7 @@
             // 
             // cboNVma
             // 
+            this.cboNVma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNVma.FormattingEnabled = true;
             this.cboNVma.Location = new System.Drawing.Point(85, 55);
             this.cboNVma.Name = "cboNVma";
@@ -207,20 +217,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã PT";
             // 
-            // btnInHoaDon
-            // 
-            this.btnInHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnInHoaDon.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btnInHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnInHoaDon.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnInHoaDon.Location = new System.Drawing.Point(632, 383);
-            this.btnInHoaDon.Name = "btnInHoaDon";
-            this.btnInHoaDon.Size = new System.Drawing.Size(96, 33);
-            this.btnInHoaDon.TabIndex = 29;
-            this.btnInHoaDon.Text = "In hóa đơn";
-            this.btnInHoaDon.UseVisualStyleBackColor = false;
-            // 
             // btnLuu
             // 
             this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -230,9 +226,9 @@
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLuu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnLuu.Location = new System.Drawing.Point(479, 383);
+            this.btnLuu.Location = new System.Drawing.Point(602, 383);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(97, 33);
+            this.btnLuu.Size = new System.Drawing.Size(157, 33);
             this.btnLuu.TabIndex = 28;
             this.btnLuu.Text = " Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
@@ -324,23 +320,12 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Hóa đơn thanh toán tiền phòng";
             // 
-            // btnTien
-            // 
-            this.btnTien.Location = new System.Drawing.Point(379, 87);
-            this.btnTien.Name = "btnTien";
-            this.btnTien.Size = new System.Drawing.Size(75, 23);
-            this.btnTien.TabIndex = 36;
-            this.btnTien.Text = "Tính tiền";
-            this.btnTien.UseVisualStyleBackColor = true;
-            this.btnTien.Click += new System.EventHandler(this.btnTien_Click);
-            // 
             // UC_HoadonPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnInHoaDon);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.dgvhoadon);
             this.Controls.Add(this.label1);
@@ -368,7 +353,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnInHoaDon;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.DataGridView dgvhoadon;
         private System.Windows.Forms.Label label1;

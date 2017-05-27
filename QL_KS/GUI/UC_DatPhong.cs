@@ -14,19 +14,16 @@ namespace GUI
 {
     public partial class UC_DatPhong : UserControl
     {
-        private bool active = false;
-        private string lastc;
-        private int lasti;
         public UC_DatPhong()
         {
             InitializeComponent();
         }
+
         Phong p = new Phong();
         LoaiPhong lp = new LoaiPhong();
         PhieuThue pt = new PhieuThue();
         KhachHang kh = new KhachHang();
         NhanVien nv = new NhanVien();
-
         void KhoaDieuKhien()
         {
             txtPhongMa.Enabled = false;
@@ -102,18 +99,10 @@ namespace GUI
             cboNVxaclap.ValueMember = "ma";
         }
 
-        //void Phong_Ban()
-        //{
-        //    DataTable dt = new DataTable();
-        //    string sql = "update phong set tinhtrang=N'bận' when ma='" + txtPhongMa.Text + "'";
-        //    dt = DBConnect.GetData(sql);
-
-        //}
-
         void HienThi()
         {
             DataTable dt = p.get_phong_loaiphong();
-                dgvPhong_LoaiPhong.DataSource = dt;
+            dgvPhong_LoaiPhong.DataSource = dt;
             dgvPhong_LoaiPhong.Columns["Mã phòng"].Width = 100;
             dgvPhong_LoaiPhong.Columns["Mã loại phòng"].Width = 100;
             dgvPhong_LoaiPhong.Columns["Giá"].Width = 150;
@@ -124,6 +113,15 @@ namespace GUI
             DataTable dt = kh.get_khachhang();
             dgvKhachHang.DataSource = dt;
 
+        }
+        private void UC_DatPhong_Load(object sender, EventArgs e)
+        {
+            KhoaDieuKhien();
+            HienThi();
+            HienThi_TTKH();
+            HienThi_cboNVxacnhan();
+            KhoaKH();
+            KhoaPT();
         }
 
         private void dgvPhong_LoaiPhong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -142,18 +140,6 @@ namespace GUI
 
             }
         }
-
-        private void UC_DatPhong_Load(object sender, EventArgs e)
-        {           
-            KhoaDieuKhien();
-            HienThi();
-            HienThi_TTKH();
-            HienThi_cboNVxacnhan();
-            KhoaKH();
-            KhoaPT();
-          
-        }
-
         public int TinhTrang1()
         {
             DataTable dt = new DataTable();
@@ -167,10 +153,6 @@ namespace GUI
             }
             return 1;
         }
-
-
-
-
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -209,11 +191,9 @@ namespace GUI
             SetNull1();
         }
 
-
-
-        private void btnCapNhat_Click_1(object sender, EventArgs e)
+        private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            if (txtTen.Text==""||cboGioiTinh.Text==""||txtCMND.Text=="")
+            if (txtTen.Text == "" || cboGioiTinh.Text == "" || txtCMND.Text == "")
             {
                 MessageBox.Show("Xin mời nhập thông tin đầy đủ");
                 return;
@@ -259,87 +239,10 @@ namespace GUI
             frm.ShowDialog();
         }
 
-        private void txtTen_TextChanged(object sender, EventArgs e)
-        {
-            
-        //    if (active == false)
-        //    {
-        //        DataTable dt;
-        //        string id = "KH";
-        //        int x = 0;
-        //        Random a = new Random();
-        //        do
-        //        {
-        //            while (x == 0)
-        //            {
-        //                x = a.Next(0, 99999999);
-        //            }
-
-        //            if (x.ToString().Length < 8)
-
-        //            {
-        //                for (int i = 0; i < 8 - x.ToString().Length; i++)
-        //                {
-        //                    id += '0';
-        //                }
-        //            }
-        //            dt = DBConnect.GetData("select ma from khachang where ma = '"+id+"'");
-        //        } while (dt!=null);
-        //        id += x.ToString();
-        //        txtKHma.Text = id;
-
-        //        active = true;
-        //    }
-
-        }
-
         private void cbb_quoctich_MouseClick(object sender, MouseEventArgs e)
         {
-           
             ToolTip a = new ToolTip();
             a.SetToolTip(cbb_quoctich, cbb_quoctich.SelectedText);
-        }
-
-        //private bool scanvalue(string text, DataColumn dt)
-        //{
-        //    foreach(var item in dt.Table.Rows)
-        //    {
-        //        if(item.ToString()== text)
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
-        //private string seachtext(string text , DataColumn dt)
-        //{
-        //    if(text== lastc)
-        //    {
-        //        lasti++;
-        //    }
-        //    else
-        //    {
-        //        lasti = 0;
-        //        lastc = text;
-        //    }
-        //    for(int i = 0;i<dt.Table.Rows.Count;i++)
-        //    {
-        //        if(dt.Table.Rows[i].ToString().Contains(text)&&i == lasti)
-        //        {
-        //            return dt.Table.Rows[i].ToString();
-        //        }
-        //    }
-        //    return "";
-        //}
-
-        private void btnLuu_MouseClick(object sender, MouseEventArgs e)
-        {
-           
-        }
-      
-        private void btnCapNhat_MouseClick(object sender, MouseEventArgs e)
-        {
-           
         }
 
         private void btnThem_MouseClick(object sender, MouseEventArgs e)
@@ -363,7 +266,7 @@ namespace GUI
             }
         }
 
-        private void button1_MouseClick(object sender, MouseEventArgs e)
+        private void btnLamMOi_MouseClick(object sender, MouseEventArgs e)
         {
             MoPT();
             if (e.Button == MouseButtons.Left)
@@ -382,16 +285,6 @@ namespace GUI
                     else txtmaphieu.Text = "0000000001";
                 }
             }
-        }
-
-        private void pnThongTinPhong_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
