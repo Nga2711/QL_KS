@@ -100,14 +100,14 @@ namespace GUI
             if (cbb_day.Text == "Tháng")
             {
                 C_bieudo.Series[0].Points.Clear();
-                C_bieudo.ChartAreas["ChartArea1"].AxisX.Title = "Tháng";
+                C_bieudo.ChartAreas["ChartArea1"].AxisX.Title = "Ngày";
                 Chartload(int.Parse(GetLastDayOfMonth(DateTime.Now).Day.ToString()));
                 
             }
             else
             {
                 C_bieudo.Series[0].Points.Clear();
-                C_bieudo.ChartAreas["ChartArea1"].AxisX.Title = "Năm";
+                C_bieudo.ChartAreas["ChartArea1"].AxisX.Title = "Tháng";
                 Chartload(12);
             }
                
