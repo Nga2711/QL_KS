@@ -23,7 +23,6 @@ namespace GUI
         NhanVien nv = new NhanVien();
         HoaDonDichVu hddv = new HoaDonDichVu();
         ChiTiethHoaDonDichVu cthddv = new ChiTiethHoaDonDichVu();
-        PhieuThue pt = new PhieuThue();
 
         void HienThi_cboKHma()
         {
@@ -85,19 +84,16 @@ namespace GUI
                 {
                     cthddv.Hoadondichvuma = txtma.Text;
                     cthddv.Dichvuma= dgvGioHang[0, i].Value.ToString();
-                 
-                        cthddv.Soluong = int.Parse(dgvGioHang[1, i].Value.ToString());
-                        cthddv.Thanhtien = decimal.Parse(dgvGioHang[2, i].Value.ToString());
-                        DataTable dt = new DataTable();
-                        string sql = @"Select soluong from dichvu where ma='" + cthddv.Dichvuma + "'";
-                        dt = DBConnect.GetData(sql);
-                        dv.Ma = cthddv.Dichvuma;
-                        dv.Soluong = int.Parse(dt.Rows[0][0].ToString()) - int.Parse(dgvGioHang[1, i].Value.ToString());
-                        dv.capnhatSL();
-                    cthddv.them_CTHDdichvu();
-
+                    cthddv.Soluong = int.Parse(dgvGioHang[1, i].Value.ToString());                   
+                    cthddv.Thanhtien = decimal.Parse(dgvGioHang[2, i].Value.ToString());
+                    DataTable dt = new DataTable();
+                    string sql = @"Select soluong from dichvu where ma='" + cthddv.Dichvuma + "'";
+                    dt = DBConnect.GetData(sql);
+                    dv.Ma = cthddv.Dichvuma;
+                    dv.Soluong = int.Parse(dt.Rows[0][0].ToString()) - int.Parse(dgvGioHang[1, i].Value.ToString());
+                    dv.capnhatSL();
                 }
-               
+                cthddv.them_CTHDdichvu();
               
                 MessageBox.Show("Thêm thành công!");            
             }
@@ -107,11 +103,6 @@ namespace GUI
                 return;
             }
             HienThi_DV();
-            txtma.Text = null;
-            cboKHma.Text = null;
-            cboNVma.Text = null;
-            txtTongTien.Text = null;
-            dgvGioHang.DataSource = null;
         }
 
  
@@ -131,24 +122,17 @@ namespace GUI
             {
                 int Row_Index = e.RowIndex;
                 DataTable dt = new DataTable();
-                string sql = "Select * from dichvu where ma='" + dgvGioHang.Rows[Row_Index].Cells[0].Value.ToString() + "'";
+                string sql="Select * from dichvu where ma='"+ dgvGioHang.Rows[Row_Index].Cells[0].Value.ToString() + "'";
                 dt = DBConnect.GetData(sql);
-                if (int.Parse(dgvGioHang.Rows[Row_Index].Cells[1].Value.ToString()) < int.Parse(dgvDichVu.Rows[Row_Index].Cells[2].Value.ToString()))
+                decimal a = decimal.Parse(dt.Rows[0][4].ToString()) * decimal.Parse(dgvGioHang.Rows[Row_Index].Cells[1].Value.ToString()) ;
+                dgvGioHang.Rows[Row_Index].Cells[2].Value = a;
+                decimal thanhtien = 0;
+                for (int i = 0; i < dgvGioHang.Rows.Count - 1; i++)
                 {
-                    decimal a = decimal.Parse(dt.Rows[0][4].ToString()) * decimal.Parse(dgvGioHang.Rows[Row_Index].Cells[1].Value.ToString());
-                    dgvGioHang.Rows[Row_Index].Cells[2].Value = a;
-                    decimal thanhtien = 0;
-                    for (int i = 0; i < dgvGioHang.Rows.Count - 1; i++)
-                    {
-                        thanhtien += decimal.Parse(dgvGioHang[2, i].Value.ToString());
-                    }
-                    txtTongTien.Text = thanhtien.ToString();
+                    thanhtien += decimal.Parse(dgvGioHang[2,i].Value.ToString());
                 }
-                else
-                {
-                    MessageBox.Show("Trong kho không đủ hàng");
-                    dgvGioHang.Rows[Row_Index].Cells[0] = null;
-                }
+                   txtTongTien.Text = thanhtien.ToString();
+               
             }
             catch
             {
@@ -164,26 +148,6 @@ namespace GUI
         {
             frmDSHDDV frm = new frmDSHDDV();
             frm.ShowDialog();
-        }
-
-        private void btnThem_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    txtma.Text = null;
-                    DataTable dt = hddv.Get_HoaDonDichVu();
-                    if (dt != null)
-
-                    {
-                        List<string> list = ((DataTable)dt).AsEnumerable().Select(x => x.Field<string>(dt.Columns[0])).ToList();
-                        if (list.Count > 0) txtma.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
-                        else txtma.Text = "0000000001";
-                    }
-                    else txtma.Text = "0000000001";
-                }
-            }
         }
     }
 }
