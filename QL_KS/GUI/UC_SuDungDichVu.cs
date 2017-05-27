@@ -212,13 +212,29 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int i =dgvGioHang.CurrentRow.Index;
-           dgvGioHang.Rows.RemoveAt(i);
+            try
+            {
+                if(dgvGioHang.DataSource != null)
+                {
+                    int i = dgvGioHang.CurrentRow.Index;
+                    dgvGioHang.Rows.RemoveAt(i);
+                }
+              
+            }
+            catch
+            {
+
+            }
+         
         }
 
         private void btnXoaAll_Click(object sender, EventArgs e)
-        {
-            dgvGioHang.Rows.Clear();
+        { 
+            if(dgvGioHang.DataSource != null)
+            {
+                dgvGioHang.Rows.Clear();
+            }
+            
         }
     }
 }
