@@ -40,14 +40,6 @@ namespace GUI
             cboNVma.ValueMember = "ma";
         }
 
-        void HienThi_cboDVma()
-        {
-                DataTable dt = dv.get_madichvu();
-                dvma.DataSource = dt;
-                dvma.DisplayMember = "ma";
-                dvma.ValueMember = "ma";       
-        }
-
         void HienThi_DV()
         {
             DataTable dt = dv.get_DSdichvu();
@@ -60,26 +52,35 @@ namespace GUI
         }
         private void UC_SuDungDichVu_Load(object sender, EventArgs e)
         {
-            txtma.Enabled = false;
             HienThi_DV();
             HienThi_cboKHma();
             HienThi_cboNVma();
-            HienThi_cboDVma();
+            txtma.Text = null;
+            DataTable dt = hddv.Get_HoaDonDichVu();
+            if (dt != null)
+
+            {
+                List<string> list = ((DataTable)dt).AsEnumerable().Select(x => x.Field<string>(dt.Columns[0])).ToList();
+                if (list.Count > 0)
+                    txtma.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
+                else txtma.Text = "0000000001";
+            }
+            else txtma.Text = "0000000001";
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtma.Text == "")
-            {
-                MessageBox.Show("Xin mời nhập thông tin đầy đủ");
-                return;
-            }
+            //if (txtma.Text == "")
+            //{
+            //    MessageBox.Show("Xin mời nhập thông tin đầy đủ");
+            //    return;
+            //}
             try
             {
                 hddv.Ma = txtma.Text;
                 hddv.Khachhangma = cboKHma.Text;
                 hddv.Nhanvienxacnhan = cboNVma.Text;
-                hddv.Ngaysudung = Convert.ToDateTime(dtpNgay.Text);
+                hddv.Ngaysudung = DateTime.Now;
                 hddv.Tongtien = Convert.ToDecimal(txtTongTien.Text);
                 hddv.them_hoadondichvu();                
                 for (int i = 0; i < dgvGioHang.Rows.Count - 1; i++)
@@ -158,9 +159,7 @@ namespace GUI
             {
 
             }
-
-            HienThi_cboDVma();
-          
+            
         }
 
         private void dgvGioHang_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -171,26 +170,6 @@ namespace GUI
         {
             frmDSHDDV frm = new frmDSHDDV();
             frm.ShowDialog();
-        }
-
-        private void btnThem_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    txtma.Text = null;
-                    DataTable dt = hddv.Get_HoaDonDichVu();
-                    if (dt != null)
-
-                    {
-                        List<string> list = ((DataTable)dt).AsEnumerable().Select(x => x.Field<string>(dt.Columns[0])).ToList();
-                        if (list.Count > 0) txtma.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
-                        else txtma.Text = "0000000001";
-                    }
-                    else txtma.Text = "0000000001";
-                }
-            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
