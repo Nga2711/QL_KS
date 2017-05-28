@@ -88,7 +88,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnDangNhap);
             this.panel1.Controls.Add(this.btnThoat);

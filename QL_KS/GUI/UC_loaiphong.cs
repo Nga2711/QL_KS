@@ -18,6 +18,7 @@ namespace GUI
         {
             InitializeComponent();
         }
+
         LoaiPhong lp = new LoaiPhong();
         bool ThemMoi;
         void KhoaDieuKhien()
@@ -69,8 +70,15 @@ namespace GUI
             dgvLoaiPhong.DataSource = dt;
         }
 
+        private void UC_loaiphong_Load(object sender, EventArgs e)
+        {
+            KhoaDieuKhien();
+            HienThi();
+        }
+
         private void dgvLoaiPhong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             KhoaDieuKhien();
             try
             {
@@ -87,18 +95,25 @@ namespace GUI
             }
         }
 
-
-        private void UC_loaiphong_Load(object sender, EventArgs e)
-        {
-            KhoaDieuKhien();
-            HienThi();
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnThem_MouseClick(object sender, MouseEventArgs e)
         {
             MoDieuKhien();
             SetNull();
             ThemMoi = true;
+            if (e.Button == MouseButtons.Left)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    SetNull();
+                    if (dgvLoaiPhong.DataSource != null)
+                    {
+                        List<string> list = ((DataTable)dgvLoaiPhong.DataSource).AsEnumerable().Select(x => x.Field<string>(dgvLoaiPhong.Columns[0].Name)).ToList();
+                        if (list.Count > 0) txtma.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
+                        else txtma.Text = "0000000001";
+                    }
+                    else txtma.Text = "0000000001";
+                }
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -114,7 +129,7 @@ namespace GUI
             {
                 lp.Ma = txtma.Text;
                 lp.xoa_loaiphong(lp.Ma);
-                MessageBox.Show("Đã xóa thành công! Cần cập nhật lại thông tin phòng!!!");
+                MessageBox.Show("Đã xóa thành công!");
                 KhoaDieuKhien();
                 SetNull();
                 HienThi();
@@ -205,37 +220,6 @@ namespace GUI
             {
                 txtTimKiem.ForeColor = Color.Gray;
                 txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
-            }
-        }
-
-        private void btnThem_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    SetNull();
-                    if (dgvLoaiPhong.DataSource != null)
-                    {
-                        List<string> list = ((DataTable)dgvLoaiPhong.DataSource).AsEnumerable().Select(x => x.Field<string>(dgvLoaiPhong.Columns[0].Name)).ToList();
-                        if (list.Count > 0) txtma.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
-                        else txtma.Text = "0000000001";
-                    }
-                    else txtma.Text = "0000000001";                
-                }
-            }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtchatluong_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
             }
         }
 

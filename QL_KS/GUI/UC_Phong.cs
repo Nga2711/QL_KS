@@ -58,7 +58,7 @@ namespace GUI
         {
             DataTable dt = lp.get_maloaiphong();
             cboLoaiPhong.DataSource = dt;
-            cboLoaiPhong.DisplayMember ="ma";
+            cboLoaiPhong.DisplayMember = "ma";
             cboLoaiPhong.ValueMember = "ma";
         }
 
@@ -68,6 +68,12 @@ namespace GUI
             string sql = @"Select ma,loaiphongma,tinhtrang  from phong where ma like '%" + txtTimKiem.Text.Trim() + "%'";
             dt = DBConnect.GetData(sql);
             dgvPhong.DataSource = dt;
+        }
+        private void UC_Phong_Load(object sender, EventArgs e)
+        {
+            KhoaDieuKhien();
+            HienThi();
+            HienThi_cboMaLoaiPhong();
         }
 
         private void dgvPhong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -86,23 +92,31 @@ namespace GUI
 
             }
         }
-        private void UC_Phong_Load(object sender, EventArgs e)
-        {
-            KhoaDieuKhien();
-            HienThi();
-            HienThi_cboMaLoaiPhong();
-        }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnThem_MouseClick(object sender, MouseEventArgs e)
         {
             MoDieuKhien();
             SetNull();
             ThemMoi = true;
+            if (e.Button == MouseButtons.Left)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    SetNull();
+                    if (dgvPhong.DataSource != null)
+                    {
+                        List<string> list = ((DataTable)dgvPhong.DataSource).AsEnumerable().Select(x => x.Field<string>(dgvPhong.Columns[0].Name)).ToList();
+                        if (list.Count > 0) txtMa.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
+                        else txtMa.Text = "0000000001";
+                    }
+                    else txtMa.Text = "0000000001";
+
+                }
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
             MoDieuKhien();
             txtMa.Enabled = false;
             ThemMoi = false;
@@ -186,13 +200,9 @@ namespace GUI
             txtTimKiem.ForeColor = Color.Black;
         }
 
-        private void txtTimKiem_MouseMove(object sender, MouseEventArgs e)
-        {
-         
-        }
-
         private void txtTimKiem_MouseLeave(object sender, EventArgs e)
         {
+
             if (txtTimKiem.Text == "")
             {
                 txtTimKiem.ForeColor = Color.Gray;

@@ -18,6 +18,7 @@ namespace GUI
         {
             InitializeComponent();
         }
+
         DichVu dv = new DichVu();
         bool ThemMoi;
         void KhoaDieuKhien()
@@ -69,6 +70,13 @@ namespace GUI
             dgvDichVu.DataSource = dt;
         }
 
+
+        private void UC_dichvu_Load(object sender, EventArgs e)
+        {
+            KhoaDieuKhien();
+            HienThi();
+        }
+
         private void dgvDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             KhoaDieuKhien();
@@ -86,18 +94,26 @@ namespace GUI
 
             }
         }
-        private void UC_dichvu_Load(object sender, EventArgs e)
-        {
-            KhoaDieuKhien();
-            HienThi();
 
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnThem_MouseClick(object sender, MouseEventArgs e)
         {
             MoDieuKhien();
             SetNull();
             ThemMoi = true;
+            if (e.Button == MouseButtons.Left)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    SetNull();
+                    if (dgvDichVu.DataSource != null)
+                    {
+                        List<string> list = ((DataTable)dgvDichVu.DataSource).AsEnumerable().Select(x => x.Field<string>(dgvDichVu.Columns[0].Name)).ToList();
+                        if (list.Count > 0) txtMa.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
+                        else txtMa.Text = "0000000001";
+                    }
+                    else txtMa.Text = "0000000001";
+                }
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -183,7 +199,7 @@ namespace GUI
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            if (txtTimKiem.Text== "nhập vào khóa muốn tìm kiếm...")
+            if (txtTimKiem.Text == "nhập vào khóa muốn tìm kiếm...")
             {
                 HienThi();
 
@@ -204,25 +220,6 @@ namespace GUI
             {
                 txtTimKiem.ForeColor = Color.Gray;
                 txtTimKiem.Text = "nhập vào khóa muốn tìm kiếm...";
-            }
-           
-        }
-
-        private void btnThem_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    SetNull();
-                    if (dgvDichVu.DataSource != null)
-                    {
-                        List<string> list = ((DataTable)dgvDichVu.DataSource).AsEnumerable().Select(x => x.Field<string>(dgvDichVu.Columns[0].Name)).ToList();
-                        if (list.Count > 0) txtMa.Text = string.Format("{0:d10}", int.Parse(list.Max()) + 1);
-                        else txtMa.Text = "0000000001";
-                    }
-                    else txtMa.Text = "0000000001";
-                }
             }
         }
 
