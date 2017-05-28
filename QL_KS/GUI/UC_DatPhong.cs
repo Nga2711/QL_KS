@@ -14,9 +14,9 @@ namespace GUI
 {
     public partial class UC_DatPhong : UserControl
     {
-        private bool active = false;
-        private string lastc;
-        private int lasti;
+       //// private bool active = false;
+       // private string lastc;
+       // private int lasti;
         public UC_DatPhong()
         {
             InitializeComponent();
@@ -401,5 +401,6 @@ namespace GUI
                 e.Handled = true;
             }
         }
+
     }
 }
