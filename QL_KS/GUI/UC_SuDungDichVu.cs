@@ -240,9 +240,17 @@ namespace GUI
                         dgvGioHang.Rows[i].Cells[dgvGioHang.ColumnCount - 2].Value = soluong;
                     }
                 }
-                if(soluong !="" &&soluong!="0")
+                if(soluong !="" &&soluong!="0" )
                 {
-                    dgvGioHang.Rows.Add(ten, soluong, thanhtien);
+                    if(dgvGioHang.RowCount==0)
+                        dgvGioHang.Rows.Add(ten, soluong, thanhtien);
+                    else
+                    for (int i = 0; i < dgvGioHang.RowCount; i++)
+                    {
+                       if( dgvGioHang.Rows[i].Cells[0].Value.ToString()!=ten && i==dgvGioHang.RowCount-1)
+                            dgvGioHang.Rows.Add(ten, soluong, thanhtien);
+                    }
+                   
                     capnhattongtien();
                 }
                 else
