@@ -115,8 +115,7 @@
             this.cboGioiTinh.FormattingEnabled = true;
             this.cboGioiTinh.Items.AddRange(new object[] {
             "Nam",
-            "Nữ",
-            "Khác"});
+            "Nữ"});
             this.cboGioiTinh.Location = new System.Drawing.Point(137, 69);
             this.cboGioiTinh.Name = "cboGioiTinh";
             this.cboGioiTinh.Size = new System.Drawing.Size(155, 21);
