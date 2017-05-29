@@ -23,8 +23,8 @@ namespace GUI
         {
             DataTable dt = cthddv.get_mahoadon();
             cboHDDVma.DataSource = dt;
-            cboHDDVma.DisplayMember = "dichvuma";
-            cboHDDVma.ValueMember = "dichvuma";
+            cboHDDVma.DisplayMember = "hoadondichvuma";
+            cboHDDVma.ValueMember = "hoadondichvuma";
         }
         //void HienThi()
         //{

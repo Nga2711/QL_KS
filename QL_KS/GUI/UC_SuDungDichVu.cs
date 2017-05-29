@@ -89,11 +89,17 @@ namespace GUI
                 hddv.Ngaysudung = DateTime.Now;
                 hddv.Tongtien = Convert.ToDecimal(txtTongTien.Text);
                 hddv.them_hoadondichvu();                
-                for (int i = 0; i < dgvGioHang.Rows.Count - 1; i++)
+                for (int i = 0; i < dgvGioHang.Rows.Count; i++)
                 {
                     cthddv.Hoadondichvuma = txtma.Text;
-                    cthddv.Dichvuma= dgvGioHang[0, i].Value.ToString();
-                 
+                    for (int j = 0; j < dgvDichVu.RowCount; j++)
+                    {
+                        if(dgvGioHang[0, i].Value.ToString()==dgvDichVu.Rows[j].Cells[1].Value.ToString())
+                        {
+                            cthddv.Dichvuma = dgvDichVu.Rows[j].Cells[0].Value.ToString();
+                            break;
+                        }
+                    }
                         cthddv.Soluong = int.Parse(dgvGioHang[1, i].Value.ToString());
                         cthddv.Thanhtien = decimal.Parse(dgvGioHang[2, i].Value.ToString());
                         DataTable dt = new DataTable();
@@ -116,8 +122,8 @@ namespace GUI
             }
             HienThi_DV();
             txtma.Text = null;
-            cboKHma.Text = null;
-            txt_nvma.Text = null;
+            //cboKHma.Text = null;
+            //txt_nvma.Text = null;
             txtTongTien.Text = null;
             dgvGioHang.Rows.Clear();
         }
@@ -216,15 +222,11 @@ namespace GUI
                         if(temp>sumsl && sumsl>0)
                         {
                             thanhtien = (sumsl * gia).ToString();
+                            soluong = sumsl.ToString();
                         }
                         else if (temp > 0  )
                         {
                             thanhtien = (temp * gia).ToString();
-                        }
-                        else
-                        {
-                            dgvDichVu.CurrentRow.Cells[dgvDichVu.ColumnCount - 1].Value = "0";
-                            return;
                         }
                     }
                 }
@@ -232,13 +234,30 @@ namespace GUI
                 {
                     if (dgvGioHang.Rows[i].Cells[0].Value.ToString() == ten) 
                     {
+                        if(thanhtien!="")
                         dgvGioHang.Rows[i].Cells[dgvGioHang.ColumnCount - 1].Value = thanhtien;
+                        if(soluong!="")
                         dgvGioHang.Rows[i].Cells[dgvGioHang.ColumnCount - 2].Value = soluong;
-                        return;
                     }
                 }
-                dgvGioHang.Rows.Add(ten,soluong,thanhtien);
-                capnhattongtien();
+                if(soluong !="" &&soluong!="0")
+                {
+                    dgvGioHang.Rows.Add(ten, soluong, thanhtien);
+                    capnhattongtien();
+                }
+                else
+                {
+                    for (int i = 0; i < dgvGioHang.RowCount; i++)
+                    {
+                        if (dgvGioHang.Rows[i].Cells[0].Value.ToString() == ten)
+                        {
+                            dgvGioHang.Rows.RemoveAt(i);
+                        }
+                    }
+                }
+                    
+                
+               
             }
 
         }
@@ -248,6 +267,7 @@ namespace GUI
             gia = 0;
             for (int i = 0; i < dgvGioHang.RowCount ; i++)
             {
+                if(dgvGioHang.Rows[i].Cells[dgvGioHang.ColumnCount - 1].Value.ToString()!="")
                 gia += decimal.Parse(dgvGioHang.Rows[i].Cells[dgvGioHang.ColumnCount - 1].Value.ToString());
             }
             txtTongTien.Text = gia.ToString();
