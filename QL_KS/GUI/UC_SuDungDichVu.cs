@@ -48,6 +48,7 @@ namespace GUI
             }
             dgvDichVu.Columns[dgvDichVu.Columns.Count - 1].ReadOnly = false;
             dgvDichVu.Columns[dgvDichVu.Columns.Count - 1].Width = dgvDichVu.Columns[2].Width;
+            dgvDichVu.Columns[0].Visible = false;
         }
       void  HienThiCTDV()
         {
