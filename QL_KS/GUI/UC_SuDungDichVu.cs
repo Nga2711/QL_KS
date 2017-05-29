@@ -247,8 +247,13 @@ namespace GUI
                     else
                     for (int i = 0; i < dgvGioHang.RowCount; i++)
                     {
-                       if( dgvGioHang.Rows[i].Cells[0].Value.ToString()!=ten && i==dgvGioHang.RowCount-1)
-                            dgvGioHang.Rows.Add(ten, soluong, thanhtien);
+                            if (dgvGioHang.Rows[i].Cells[0].Value.ToString() == ten)
+                                break;
+                            else
+                                if(i==dgvGioHang.RowCount-1)
+                            {
+                                dgvGioHang.Rows.Add(ten, soluong, thanhtien);
+                            }
                     }
                    
                     capnhattongtien();
